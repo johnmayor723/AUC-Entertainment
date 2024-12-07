@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Posts</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Manage Posts</h1>
+    <a href="/management" class="btn btn-secondary mb-3">Back to Dashboard</a>
+
+    <!-- Form to create a new post -->
+    <form action="/management/posts" method="POST" class="mb-4">
+      <h4>Add New Post</h4>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">Content</label>
+        <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input type="text" class="form-control" id="author" name="author" required>
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Post</button>
+    </form>
+
+    <!-- List of existing posts -->
+    <h4>Existing Posts</h4>
+    <div class="row">
+      <% posts.forEach(post => { %>
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= post.title %></h5>
+              <p class="card-text">Author: <%= post.author %></p>
+              <p class="card-text">Date: <%= post.date %></p>
+              <p class="card-text"><%= post.content.substring(0, 100) %>...</p>
+              <a href="/posts/<%= post._id %>" class="btn btn-info">View Post</a>
+              <form action="/management/posts/<%= post._id %>" method="POST" class="mt-2">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>

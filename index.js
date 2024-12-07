@@ -1,54 +1,38 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path');
-const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const passport = require('passport');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
-
-// Import routes
-const indexRoutes = require('./routes/index');
-const apiApartmentRoutes = require('./routes/api/apartmentRoutes');
-const apiAuthRoutes = require('./routes/api/authRoutes');
-const apiBookingRoutes = require('./routes/api/bookingRoutes');
-
-dotenv.config();
+const Stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const methodOverride = require('method-override');
 
 const app = express();
-
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(bodyParser.json());
-
-// Set up views directory and ejs view engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+const DB_URL = "mongodb+srv://admin:majoje1582@cluster0.cqudxbr.mongodb.net/?retryWrites=true&w=majority"
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
-  .then(() => console.log('MongoDB connected'))
-  .catch((err) => console.log(err));
-
-// Routes
-// Index Routes for rendering views (e.g., Homepage, Apartments page, etc.)
-app.use('/', indexRoutes);
-
-// API Routes for mobile apps or other external consumers
-app.use('/api/apartments', apiApartmentRoutes);
-app.use('/api/auth', apiAuthRoutes);
-app.use('/api/bookings', apiBookingRoutes);
-
-// Set up a 404 route
-app.use((req, res) => {
-  res.status(404).json({ error: 'Not Found' });
+  useFindAndModify: false,
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
+// Middleware
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+
+// Routers
+const indexRouter = require('./routes/index');
+const managementRouter = require('./routes/management');
+
+// Use Routers
+app.use('/', indexRouter);
+app.use('/management', managementRouter);
+
+// Start server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
