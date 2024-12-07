@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Video = require('../models/Video');
 const Music = require('../models/Music');
-const Product = require('../models/Product');
+const Product = require('../models/Shop');
 const Post = require('../models/Post');
 
 // Index Route - Homepage

@@ -15,8 +15,12 @@ const DB_URL = "mongodb+srv://admin:majoje1582@cluster0.cqudxbr.mongodb.net/?ret
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
+}).then(() => {
+  console.log("Connected to MongoDB");
+}).catch((err) => {
+  console.error("Error connecting to MongoDB:", err);
 });
+
 
 // Middleware
 app.set('view engine', 'ejs');
