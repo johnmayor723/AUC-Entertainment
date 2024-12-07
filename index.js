@@ -6,6 +6,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const Stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const methodOverride = require('method-override');
+const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 const DB_URL = "mongodb+srv://admin:majoje1582@cluster0.cqudxbr.mongodb.net/?retryWrites=true&w=majority"
@@ -20,6 +21,10 @@ mongoose.connect(DB_URL, {
 // Middleware
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+Use express-ejs-layouts
+app.use(expressLayouts);
+app.set('layout', 'layout');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
