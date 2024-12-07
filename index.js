@@ -21,7 +21,7 @@ mongoose.connect(DB_URL, {
 // Middleware
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-Use express-ejs-layouts
+//Use express-ejs-layouts
 app.use(expressLayouts);
 app.set('layout', 'layout');
 
