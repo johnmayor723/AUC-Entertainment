@@ -1,52 +1,79 @@
+
 <style>
-    .oneMusic-buy-now-area .single-album-area {
-    margin-bottom: 30px;
-    text-align: center;
+    .music-section {
+    background: linear-gradient(to bottom, #000, #333);
+    color: #fff;
+    padding: 50px 0;
 }
 
-.single-album-area .album-thumb {
-    position: relative;
-    width: 100%;
-    height: 200px; /* Adjusted height */
-    overflow: hidden;
+.music-card {
+    background: #222;
     border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
-.single-album-area .album-thumb img {
+.card-image img {
     width: 100%;
-    height: 100%;
+    height: 180px;
     object-fit: cover;
 }
 
-.album-price {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
+.card-body {
+    padding: 15px;
 }
 
-.play-icon {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+.song-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.author {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: #111;
+}
+
+.card-footer button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.play-btn {
+    background: #28a745;
+}
+
+.play-btn:hover {
+    background: #218838;
+}
+
+.download-btn {
+    background: #007bff;
+}
+
+.download-btn:hover {
+    background: #0056b3;
 }
 
 @media (max-width: 768px) {
-    .single-album-area .album-thumb {
-        height: 180px; /* Adjust for smaller screens */
-    }
-}
-
-@media (min-width: 768px) {
-    .single-album-area .album-thumb {
-        height: 220px; /* Slightly larger on desktops */
+    .card-image img {
+        height: 150px;
     }
 }
 </style>
-
     <!-- ##### Header Area Start ##### -->
     
 
@@ -106,10 +133,57 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-9">
                     <div class="ablums-text text-center mb-70">
-                        <p></p>
+                        <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
                     </div>
                 </div>
             </div>
+
+
+<section class="music-section section-padding-100">
+    <div class="container">
+        <div class="row">
+            <!-- Single Music Card -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="music-card">
+                    <div class="card-image">
+                        <img src="img/song-cover-1.jpg" alt="Song Cover">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="song-title">Song Title 1</h5>
+                        <p class="author">Artist Name</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="play-btn" onclick="togglePlay(this, 'audio1')">Play</button>
+                        <button class="download-btn" onclick="downloadMusic('song1.mp3')">Download</button>
+                    </div>
+                    <!-- Audio Element -->
+                    <audio id="audio1" src="songs/song1.mp3"></audio>
+                </div>
+            </div>
+
+            <!-- Repeat Cards for Other Songs -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="music-card">
+                    <div class="card-image">
+                        <img src="img/song-cover-2.jpg" alt="Song Cover">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="song-title">Song Title 2</h5>
+                        <p class="author">Artist Name</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="play-btn" onclick="togglePlay(this, 'audio2')">Play</button>
+                        <button class="download-btn" onclick="downloadMusic('song2.mp3')">Download</button>
+                    </div>
+                    <!-- Audio Element -->
+                    <audio id="audio2" src="songs/song2.mp3"></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
             <div class="row">
                 <div class="col-12">
@@ -427,67 +501,6 @@
         </div>
     </section>
     <!-- ##### Buy Now Area End ##### -->
-    
-    <!-- ##### Buy Now Area Start ##### -->
-<section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-100">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading style-2">
-                    <p>See what’s new</p>
-                    <h2>Buy What’s New</h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Single Album Area -->
-            <div class="col-6 col-md-3">
-                <div class="single-album-area">
-                    <div class="album-thumb">
-                        <img src="img/bg-img/b1.jpg" alt="">
-                        <div class="album-price">
-                            <p>$0.90</p>
-                        </div>
-                        <div class="play-icon">
-                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
-                        </div>
-                    </div>
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>Garage Band</h5>
-                        </a>
-                        <p>Radio Station</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional Album Areas (repeat as needed) -->
-            <div class="col-6 col-md-3">
-                <div class="single-album-area">
-                    <div class="album-thumb">
-                        <img src="img/bg-img/b2.jpg" alt="">
-                    </div>
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>Noises</h5>
-                        </a>
-                        <p>Buble Gum</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="load-more-btn text-center">
-                    <a href="#" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ##### Buy Now Area End ##### -->
 
     <!-- ##### Featured Artist Area Start ##### -->
     <section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url(img/bg-img/bg-4.jpg);">
@@ -842,4 +855,35 @@
         </div>
     </section>
     <!-- ##### Contact Area End ##### -->
+    <script>
+        function togglePlay(button, audioId) {
+    const audio = document.getElementById(audioId);
+    if (audio.paused) {
+        // Pause all other audio elements
+        document.querySelectorAll('audio').forEach((otherAudio) => {
+            otherAudio.pause();
+            otherAudio.currentTime = 0; // Reset playback
+        });
 
+        audio.play();
+        button.textContent = "Pause";
+    } else {
+        audio.pause();
+        button.textContent = "Play";
+    }
+
+    // Update button text when the audio ends
+    audio.onended = () => {
+        button.textContent = "Play";
+    };
+}
+
+function downloadMusic(song) {
+    const link = document.createElement('a');
+    link.href = song;
+    link.download = song;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+    </script>
