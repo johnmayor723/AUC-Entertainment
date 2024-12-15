@@ -46,7 +46,7 @@ router.post('/video', async (req, res) => {
 });
 
 // Route to display a single music's details
-app.get('/video/:id', async (req, res) => {
+router.get('/video/:id', async (req, res) => {
   try {
     const video = await Video.findById(req.params.id);
     if (!music) {
