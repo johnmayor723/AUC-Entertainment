@@ -68,14 +68,14 @@ router.get('/music', async (req, res) => {
 
 // Create Music
 router.post('/music', async (req, res) => {
-  const { category, title, fileUrl, author, year } = req.body;
+  const { category, title, fileUrl, imageUrl, author, year } = req.body;
   await Music.create({ category, title, fileUrl, author, year });
   res.redirect('/management/music');
 });
 
 // Update Music
 router.put('/music/:id', async (req, res) => {
-  const { category, title, fileUrl, author, year } = req.body;
+  const { category, title, fileUrl, imageUrl, author, year } = req.body;
   await Music.findByIdAndUpdate(req.params.id, { category, title, fileUrl, author, year });
   res.redirect('/management/music');
 });
