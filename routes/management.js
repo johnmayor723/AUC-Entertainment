@@ -52,7 +52,7 @@ router.get('/video/:id', async (req, res) => {
     if (!music) {
       return res.status(404).send('Music not found');
     }
-    res.render('show-video', { video });
+    res.render('management/show-video', { video });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred while fetching the music.');
@@ -80,7 +80,7 @@ router.get('/video/:id', async (req, res) => {
     if (!video) {
       return res.status(404).send('Video not found');
     }
-    res.render('video-show', { video });
+    res.render('management/show-video', { video });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred while fetching the video.');
@@ -112,7 +112,7 @@ router.get('/music/:id', async (req, res) => {
     if (!music) {
       return res.status(404).send('Music not found');
     }
-    res.render('show-music', { music });
+    res.render('management/show-music', { music });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred while fetching the music.');
@@ -155,7 +155,7 @@ router.get('/product/:id', async (req, res) => {
     if (!product) {
       return res.status(404).send('Product not found');
     }
-    res.render('show-product', { product });
+    res.render('management/show-shop', { product });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred while fetching the product.');
@@ -198,7 +198,7 @@ router.get('/post/:id', async (req, res) => {
     if (!post) {
       return res.status(404).send('Post not found');
     }
-    res.render('show-post', { post });
+    res.render('management/show-post', { post });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred while fetching the post.');
