@@ -41,7 +41,7 @@ router.get('/video', async (req, res) => {
 // Create Video
 router.post('/video', async (req, res) => {
   const { title, author, fileUrl,imageUrl, year } = req.body;
-  await Video.create({ title, author,imageUrl fileUrl, year });
+  await Video.create({ title, author,imageUrl, fileUrl, year });
   res.redirect('/management/video');
 });
 
@@ -63,7 +63,7 @@ app.get('/video/:id', async (req, res) => {
 // Update Video
 router.put('/video/:id', async (req, res) => {
   const { title, author, fileUrl,imageUrl, year } = req.body;
-  await Video.findByIdAndUpdate(req.params.id, { title, author, fileUrl, year });
+  await Video.findByIdAndUpdate(req.params.id, { title, author, imageUrl, fileUrl, year });
   res.redirect('/management/video');
 });
 
@@ -101,7 +101,7 @@ router.get('/music', async (req, res) => {
 // Create Music
 router.post('/music', async (req, res) => {
   const { category, title, fileUrl, imageUrl, author, year } = req.body;
-  await Music.create({ category, title, fileUrl, author, year });
+  await Music.create({ category, title,imageUrl, fileUrl, author, year });
   res.redirect('/management/music');
 });
 
@@ -123,7 +123,7 @@ router.get('/music/:id', async (req, res) => {
 // Update Music
 router.put('/music/:id', async (req, res) => {
   const { category, title, fileUrl, imageUrl, author, year } = req.body;
-  await Music.findByIdAndUpdate(req.params.id, { category, title, fileUrl, author, year });
+  await Music.findByIdAndUpdate(req.params.id, { category, title,imageUrl, fileUrl, author, year });
   res.redirect('/management/music');
 });
 
