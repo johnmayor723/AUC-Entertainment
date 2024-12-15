@@ -48,6 +48,9 @@
               <p class="card-text">Author: <%= song.author %></p>
               <p class="card-text">Year: <%= song.year %></p>
               <a href="<%= song.fileUrl %>" class="btn btn-primary">Listen</a>
+               <a class="btn btn-primary" href="/management/music/<%= video._id %>">
+               Edit</a>
+              
               <form action="/management/music/<%= song._id %>?_method=DELETE" method="POST" class="mt-2">
                 <button type="submit" class="btn btn-danger">Delete</button>
               </form>

@@ -51,8 +51,8 @@
               <form action="/management/video/<%= video._id %>" method="POST" class="mt-2">
                 <button type="submit" class="btn btn-danger">Delete</button>
               </form>
-              <form action="/management/video/<%= video._id %>?_method=DELETE" method="get" class="mt-2">
-                <button type="submit" class="btn btn-danger">Edit</button>
+              <a class="btn btn-primary" href="/management/video/<%= video._id %>">
+               Edit</a>
               </form>
             </div>
           </div>
