@@ -15,6 +15,7 @@
     <meta name="author" content="">
     <!-- bootstrap css -->
     <!-- Bootstrap CSS -->
+    
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- style css -->
@@ -68,13 +69,13 @@
 <!-- body -->
 
 <body class="main-layout">
-    <!-- loader  -->
+    <!-- loader  
     <div class="loader_bg">
         <div class="loader"><img height="85px" src="img/auclogo.png" alt="#" /></div>
     </div>
     <!-- end loader -->
     <!-- header -->
-    <header>
+    <header> 
         <!-- header inner -->
         <div class="header">
             <div class="container">
@@ -93,27 +94,58 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="active"> <a href="index.html">Home</a> </li>
+                                        <li class="active"> <a href="/">Home</a> </li>
+   <li> <a href="/gallery">Gallery</a> </li> 
+   
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Music
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li class="dropdown-header">Music Categories</li>
+    <li><a href="#">Afrobeat</a></li>
+    <li><a href="#">Asaka</a></li>
+    <li><a href="#">Dance Hall</a></li>
+    <li><a href="#">Drill Music</a></li>
+    <li><a href="#">Gospel</a></li>
+    <li><a href="#">Hiphop</a></li>
+    <li><a href="#">Hiplife</a></li>
+    
+  </ul>
+</div>
+ <li> <a href="/shop">Shop</a> </li>
+ <li> <a href="/video">Videos</a> </li>
+  
                                         <li> <a href="about.html">about</a> </li>
-                                        <li> <a href="album.html"> Albums</a> </li>
-                                        <li> <a href="blog.html">Blog</a> </li>
-                                        <li> <a href="contact.html">Contact</a> </li>
-                                        <li> <a href="#contact">Login</a> </li>
+                                        <li>  <a href="">Blog</a> </li>
+                                        <li> <a href="/contact">Contact</a> </li>
+                                        
+                <li>  
+                <form class="navbar-form navbar-left" role="search">
+  <div style="padding:20px" class="form-group">
+    <input  style="border: 2px red solid; background-color: grey; border-radius:8px; color:white; " type="text" class="form-control" placeholder="Search">
+  </div>
+  <button class="btn btn-primary" style="color:white;margin-left:20px" type="submit" class="btn btn-default">Submit</button>
+</form>
+</li>                         
                                     </ul>
                                 </nav>
                             </div>
                         </div>
+                       
                     </div>
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                 <!---   <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
                         <form class="search">
                             <input class="form-control" type="text" placeholder="Search">
                             <button><img src="images/search_icon.png"></button>
                         </form>
-                    </div>
+                    </div> --->
                 </div>
             </div>
             <!-- end header inner -->
     </header>
+
     <!-- end header -->
     <section class="banner_section">
         <div class="banner-main">
@@ -238,8 +270,78 @@
    </section>
 
 
-    
+    <!-- Music Section -->
 
+ <!-- Music Section -->
+ 
+ 
+<div id="music-section" class="Albums py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage mb-4">
+                    <h3 style="font-size: 25px; font-weight:bold;">Your Favorite Tunes</h3>
+                    <span>Discover handpicked tracks that will elevate your mood. From timeless classics to the latest hits, let the rhythm take over.</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <% music.forEach(music => { %>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="<%= music.imageUrl %>" class="card-img-top" alt="<%= music.title %>">
+                    <div class="card-body">
+                        <h5 class="card-title mb-1" style="text-align: left;"><%= music.title %></h5>
+                        <p class="card-text" style="text-align: left;">By <strong><%= music.author %></strong></p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        
+                        <audio controls>
+  <source src="<%= music.fileUrl %>" type="audio/ogg">
+  
+</audio>
+                        
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+<!-- Video Section -->
+<div id="video-section" class="Albums py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage mb-4">
+                    <h3 class="titlepage" >Our Curated Videos</h3>
+                    <span>Take a break and explore our collection of captivating visuals. From music videos to short films, enjoy every frame.</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <% videos.forEach(video => { %>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="<%= video.imageUrl %>" class="card-img-top" alt="<%= video.title %>">
+                    <div class="card-body">
+                        <h5 class="card-title mb-1" style="text-align: left;"><%= video.title %></h5>
+                        <p class="card-text" style="text-align: left;">By <strong><%= video.author %></strong></p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="<%= video.fileUrl %>" class="btn btn-danger">
+                            <i class="fas fa-play"></i> Watch
+                        </a>
+                        <a href="<%= video.fileUrl %>" download class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
     <!-- Download -->
     <div id="screenshot" class="Lastestnews">
         <div class="container">
@@ -350,13 +452,13 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-12 width">
+                    <div class="col-lg-4 col-md-6 col-sm-12 width">
                         <div class="address">
                             <h3>Contact Us</h3>
                             <ul class="locarion_icon">
-                                <li><img src="icon/1.png" alt="icon" />104 New York , USA</li>
-                                <li><img src="icon/2.png" alt="icon" />Phone : ( +71 5896547 )</li>
-                                <li><img src="icon/3.png" alt="icon" />Email : demo@email.com</li>
+                                <li><img src="icon/1.png" alt="icon" /> Unter den Eichen 5 , 30855 langenhagen.</li>
+                                <li><img src="icon/2.png" alt="icon" />Phone : ( +4915236130116 )</li>
+                                <li><img src="icon/3.png" alt="icon" />Email : info@aucentertainmentpro.com</li>
 
                             </ul>
 
@@ -368,7 +470,25 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 width">
+                    <div  class="col-lg-4 col-md-6 col-sm-12 width">
+                        <div class="address">
+                            <h3>Links</h3>
+                            <ul style="color:white;" class="locarion_icon">
+                               
+                                <li><a style="color:white;" href="/about">About Us</a></li>
+                        <li><a style="color:white;" href="/contact">Contact Us</a>
+                        </li>
+                        <li> <a style="color:white;" href="/news">News</a> </li>
+   <li> <a style="color:white;" href="/promotions">Promotions</a> </li>
+                         <li><a style="color:white;" href="/terms">Terms And Conditions</a></li>
+                          <li><a style="color:white;" href="/policy">Privacy Policy</a></li>
+                               
+                            </ul>
+
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 width">
                         <div class="address">
                             <h3>Get In Touch</h3>
                             <form>
