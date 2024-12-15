@@ -4,6 +4,7 @@ const MusicSchema = new mongoose.Schema({
   category: String,
   title: String,
   fileUrl: String,
+  imageUrl: String,
   author: String,
   year: Number
 });
