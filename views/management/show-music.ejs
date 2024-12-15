@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Music</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5"><%= music.title %></h1>
+    <a href="/management" class="btn btn-secondary mb-3">Back to Dashboard</a>
+    
+    <!-- Music Details -->
+    <div class="card">
+      <img src="<%= music.artworkUrl %>" class="card-img-top" alt="<%= music.title %> Artwork">
+      <div class="card-body">
+        <h5 class="card-title">Artist: <%= music.artist %></h5>
+        <p class="card-text">Year: <%= music.year %></p>
+        <a href="<%= music.fileUrl %>" class="btn btn-primary">Play Music</a>
+      </div>
+    </div>
+
+    <!-- Form to Edit Music -->
+    <form action="/management/music/<%= music._id %>?_method=PUT" method="POST" class="mt-4">
+      <h4>Edit Music</h4>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="<%= music.title %>" required>
+      </div>
+      <div class="mb-3">
+        <label for="artist" class="form-label">Artist</label>
+        <input type="text" class="form-control" id="artist" name="artist" value="<%= music.artist %>" required>
+      </div>
+      <div class="mb-3">
+        <label for="fileUrl" class="form-label">File URL</label>
+        <input type="text" class="form-control" id="fileUrl" name="fileUrl" value="<%= music.fileUrl %>" required>
+      </div>
+      <div class="mb-3">
+        <label for="artworkUrl" class="form-label">Artwork URL</label>
+        <input type="text" class="form-control" id="artworkUrl" name="artworkUrl" value="<%= music.artworkUrl %>" required>
+      </div>
+      <div class="mb-3">
+        <label for="year" class="form-label">Year</label>
+        <input type="text" class="form-control" id="year" name="year" value="<%= music.year %>" required>
+      </div>
+      <button type="submit" class="btn btn-success">Update Music</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -40,14 +40,29 @@ router.get('/video', async (req, res) => {
 
 // Create Video
 router.post('/video', async (req, res) => {
-  const { title, author, fileUrl, year } = req.body;
-  await Video.create({ title, author, fileUrl, year });
+  const { title, author, fileUrl,imageUrl, year } = req.body;
+  await Video.create({ title, author,imageUrl fileUrl, year });
   res.redirect('/management/video');
 });
 
+// Route to display a single music's details
+app.get('/video/:id', async (req, res) => {
+  try {
+    const video = await Video.findById(req.params.id);
+    if (!music) {
+      return res.status(404).send('Music not found');
+    }
+    res.render('show-video', { video });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred while fetching the music.');
+  }
+});
+
+
 // Update Video
 router.put('/video/:id', async (req, res) => {
-  const { title, author, fileUrl, year } = req.body;
+  const { title, author, fileUrl,imageUrl, year } = req.body;
   await Video.findByIdAndUpdate(req.params.id, { title, author, fileUrl, year });
   res.redirect('/management/video');
 });
@@ -57,6 +72,23 @@ router.delete('/video/:id', async (req, res) => {
   await Video.findByIdAndDelete(req.params.id);
   res.redirect('/video');
 });
+
+// Route to display a single video's details
+router.get('/video/:id', async (req, res) => {
+  try {
+    const video = await Video.findById(req.params.id);
+    if (!video) {
+      return res.status(404).send('Video not found');
+    }
+    res.render('video-show', { video });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred while fetching the video.');
+  }
+});
+
+
+
 
 //// Music Routes ////
 
@@ -72,6 +104,21 @@ router.post('/music', async (req, res) => {
   await Music.create({ category, title, fileUrl, author, year });
   res.redirect('/management/music');
 });
+
+// Route to display a single music's details
+router.get('/music/:id', async (req, res) => {
+  try {
+    const music = await Music.findById(req.params.id);
+    if (!music) {
+      return res.status(404).send('Music not found');
+    }
+    res.render('show-music', { music });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred while fetching the music.');
+  }
+});
+
 
 // Update Music
 router.put('/music/:id', async (req, res) => {
@@ -101,6 +148,21 @@ router.post('/shop', async (req, res) => {
   res.redirect('/management/shop');
 });
 
+// Route to display a single product's details
+router.get('/product/:id', async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).send('Product not found');
+    }
+    res.render('show-product', { product });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred while fetching the product.');
+  }
+});
+
+
 // Update Product
 router.put('/shop/:id', async (req, res) => {
   const { imageUrl, title, price, description } = req.body;
@@ -129,6 +191,21 @@ router.post('/posts', async (req, res) => {
   res.redirect('/management/posts');
 });
 
+// Route to display a single post's details
+router.get('/post/:id', async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).send('Post not found');
+    }
+    res.render('show-post', { post });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred while fetching the post.');
+  }
+});
+
+
 // Update Post
 router.put('/posts/:id', async (req, res) => {
   const { imageUrl, title, description } = req.body;
@@ -141,5 +218,7 @@ router.delete('/posts/:id', async (req, res) => {
   await Post.findByIdAndDelete(req.params.id);
   res.redirect('/management/posts');
 });
+
+
 
 module.exports = router;

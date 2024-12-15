@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Details</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Post Details: <%= post.title %></h1>
+    <a href="/management/posts" class="btn btn-secondary mb-3">Back to Posts</a>
+
+    <div class="row">
+      <div class="col-md-6">
+        <img src="<%= post.imageUrl %>" class="img-fluid mb-4" alt="<%= post.title %>">
+      </div>
+      <div class="col-md-6">
+        <p><strong>Content:</strong></p>
+        <p><%= post.content %></p>
+
+        <!-- Edit Post Form -->
+        <form action="/management/posts/<%= post._id %>?_method=PUT" method="POST" class="mb-3">
+          <input type="hidden" name="_method" value="PUT">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="<%= post.title %>" required>
+          </div>
+          <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea class="form-control" id="content" name="content" required><%= post.content %></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="imageUrl" class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="imageUrl" name="imageUrl" value="<%= post.imageUrl %>" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Post</button>
+        </form>
+
+        <!-- Delete Post Form -->
+        <form action="/management/posts/<%= post._id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger">Delete Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
