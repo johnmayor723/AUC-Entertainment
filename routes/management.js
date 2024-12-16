@@ -64,6 +64,7 @@ router.get('/video/:id', async (req, res) => {
 router.put('/video/:id', async (req, res) => {
   const { title, author, fileUrl,imageUrl, year } = req.body;
   await Video.findByIdAndUpdate(req.params.id, { title, author, imageUrl, fileUrl, year });
+     
   res.redirect('/management/video');
 });
 
@@ -99,12 +100,19 @@ router.get('/music', async (req, res) => {
 });
 
 // Create Music
-router.post('/music', async (req, res) => {
+router.post('/music', (req, res) => {
   const { category, title, fileUrl, imageUrl, author, year } = req.body;
-  await Music.create({ category, title,imageUrl, fileUrl, author, year });
-  res.redirect('/management/music');
-});
 
+  Music.create({ category, title, imageUrl, fileUrl, author, year })
+    .then((music) => {
+      console.log('New Music Created:', music);
+      res.redirect('/management/music');
+    })
+    .catch((err) => {
+      console.error('Error creating music:', err);
+      res.status(500).send('An error occurred');
+    });
+});
 // Route to display a single music's details
 router.get('/music/:id', async (req, res) => {
   try {
@@ -119,14 +127,20 @@ router.get('/music/:id', async (req, res) => {
   }
 });
 
-
 // Update Music
-router.put('/music/:id', async (req, res) => {
+router.put('/music/:id', (req, res) => {
   const { category, title, fileUrl, imageUrl, author, year } = req.body;
-  await Music.findByIdAndUpdate(req.params.id, { category, title,imageUrl, fileUrl, author, year });
-  res.redirect('/management/music');
-});
 
+  Music.findByIdAndUpdate(req.params.id, { category, title, imageUrl, fileUrl, author, year })
+    .then((updatedMusic) => {
+      console.log('Music Updated:', updatedMusic);
+      res.redirect('/management/music');
+    })
+    .catch((err) => {
+      console.error('Error updating music:', err);
+      res.status(500).send('An error occurred');
+    });
+});
 // Delete Music
 router.delete('/music/:id', async (req, res) => {
   await Music.findByIdAndDelete(req.params.id);
