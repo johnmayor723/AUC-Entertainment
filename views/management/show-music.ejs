@@ -20,32 +20,59 @@
         <a href="<%= music.fileUrl %>" class="btn btn-primary">Play Music</a>
       </div>
     </div>
+  
+  <!-- Form to Edit Music -->
+<form action="/management/music/<%= music._id %>?_method=PUT" method="POST" class="mt-4">
+  <h4>Edit Music</h4>
+  
+  <!-- Title Input -->
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" name="title" value="<%= music.title %>" required>
+  </div>
+  
+  <!-- Artist Input -->
+  <div class="mb-3">
+    <label for="artist" class="form-label">Artist</label>
+    <input type="text" class="form-control" id="artist" name="artist" value="<%= music.artist %>" required>
+  </div>
+  
+  <!-- File URL Input -->
+  <div class="mb-3">
+    <label for="fileUrl" class="form-label">File URL</label>
+    <input type="text" class="form-control" id="fileUrl" name="fileUrl" value="<%= music.fileUrl %>" required>
+  </div>
+  
+  <!-- Artwork URL Input -->
+  <div class="mb-3">
+    <label for="artworkUrl" class="form-label">Artwork URL</label>
+    <input type="text" class="form-control" id="artworkUrl" name="imageUrl" value="<%= music.imageUrl %>" required>
+  </div>
+  
+  <!-- Year Input -->
+  <div class="mb-3">
+    <label for="year" class="form-label">Year</label>
+    <input type="text" class="form-control" id="year" name="year" value="<%= music.year %>" required>
+  </div>
+  
+  <!-- Category Select -->
+  <div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <select class="form-control" id="category" name="category" required>
+      <option value="Afrobeat" <%= music.category === 'Afrobeat' ? 'selected' : '' %>>Afrobeat</option>
+      <option value="Asakaa" <%= music.category === 'Asakaa' ? 'selected' : '' %>>Asakaa</option>
+      <option value="Dancehall" <%= music.category === 'Dancehall' ? 'selected' : '' %>>Dancehall</option>
+      <option value="Drill Music" <%= music.category === 'Drill Music' ? 'selected' : '' %>>Drill Music</option>
+      <option value="Gospel" <%= music.category === 'Gospel' ? 'selected' : '' %>>Gospel</option>
+      <option value="Hip Hop" <%= music.category === 'Hip Hop' ? 'selected' : '' %>>Hip Hop</option>
+      <option value="Hiplife" <%= music.category === 'Hiplife' ? 'selected' : '' %>>Hiplife</option>
+    </select>
+  </div>
+  
+  <!-- Submit Button -->
+  <button type="submit" class="btn btn-success">Update Music</button>
+</form>
 
-    <!-- Form to Edit Music -->
-    <form action="/management/music/<%= music._id %>?_method=PUT" method="POST" class="mt-4">
-      <h4>Edit Music</h4>
-      <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" name="title" value="<%= music.title %>" required>
-      </div>
-      <div class="mb-3">
-        <label for="artist" class="form-label">Artist</label>
-        <input type="text" class="form-control" id="artist" name="artist" value="<%= music.artist %>" required>
-      </div>
-      <div class="mb-3">
-        <label for="fileUrl" class="form-label">File URL</label>
-        <input type="text" class="form-control" id="fileUrl" name="fileUrl" value="<%= music.fileUrl %>" required>
-      </div>
-      <div class="mb-3">
-        <label for="artworkUrl" class="form-label">Artwork URL</label>
-        <input type="text" class="form-control" id="artworkUrl" name="imageUrl" value="<%= music.imageUrl %>" required>
-      </div>
-      <div class="mb-3">
-        <label for="year" class="form-label">Year</label>
-        <input type="text" class="form-control" id="year" name="year" value="<%= music.year %>" required>
-      </div>
-      <button type="submit" class="btn btn-success">Update Music</button>
-    </form>
   </div>
 </body>
 </html>

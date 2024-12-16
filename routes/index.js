@@ -22,6 +22,21 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route to render the Contact page
+router.get('/contact', (req, res) => {
+  res.render('contact'); // Renders the 'contact.ejs' file from the views folder
+});
+
+// Route to render the About page
+router.get('/about', (req, res) => {
+  res.render('about'); // Renders the 'about.ejs' file from the views folder
+});
+
+// Route to render the Album page
+router.get('/album', (req, res) => {
+  res.render('album'); // Renders the 'album.ejs' file from the views folder
+});
+
 // Videos Route
 router.get('/videos', async (req, res) => {
   try {
@@ -41,6 +56,76 @@ router.get('/music', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send('Error loading music');
+  }
+});
+
+// Route for Afrobeat category
+router.get('/categories/afrobeat', async (req, res) => {
+  try {
+    const music = await Music.find({ category: 'Afrobeat' }); // Filter Music model by category
+    res.render('category', { music, category: 'Afrobeat' }); // Pass data and category name to view
+  } catch (error) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Route for Asakaa category
+router.get('/categories/asakaa', async (req, res) => {
+  try {
+    const music = await Music.find({ category: 'Asakaa' });
+    res.render('category', { music, category: 'Asakaa' });
+  } catch (error) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Route for Dancehall category
+router.get('/categories/dancehall', async (req, res) => {
+  try {
+    const music = await Music.find({ category: 'Dancehall' });
+    res.render('category', { music, category: 'Dancehall' });
+  } catch (error) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Route for Drill Music category
+router.get('/categories/drill', async (req, res) => {
+  try {
+    const music = await Music.find({ category: 'Drill Music' });
+    res.render('category', { music, category: 'Drill Music' });
+  } catch (error) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Route for Gospel category
+router.get('/categories/gospel', async (req, res) => {
+  try {
+    const music = await Music.find({ category: 'Gospel' });
+    res.render('category', { music, category: 'Gospel' });
+  } catch (error) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Route for Hip Hop category
+router.get('/categories/hiphop', async (req, res) => {
+  try {
+    const music = await Music.find({ category: 'Hip Hop' });
+    res.render('category', { music, category: 'Hip Hop' });
+  } catch (error) {
+    res.status(500).send('Server Error');
+  }
+});
+
+// Route for Hiplife category
+router.get('/categories/hiplife', async (req, res) => {
+  try {
+    const music = await Music.find({ category: 'Hiplife' });
+    res.render('category', { music, category: 'Hiplife' });
+  } catch (error) {
+    res.status(500).send('Server Error');
   }
 });
 
