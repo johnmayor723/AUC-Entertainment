@@ -200,8 +200,8 @@ router.get('/posts', async (req, res) => {
 
 // Create Post
 router.post('/posts', async (req, res) => {
-  const { imageUrl, title, description } = req.body;
-  await Post.create({ imageUrl, title, description });
+  const { imageUrl, title, content, date } = req.body;
+  await Post.create({ imageUrl, title, content, date });
   res.redirect('/management/posts');
 });
 
@@ -222,8 +222,8 @@ router.get('/post/:id', async (req, res) => {
 
 // Update Post
 router.put('/posts/:id', async (req, res) => {
-  const { imageUrl, title, description } = req.body;
-  await Post.findByIdAndUpdate(req.params.id, { imageUrl, title, description });
+  const { imageUrl, title, content, date } = req.body;
+  await Post.findByIdAndUpdate(req.params.id, { imageUrl, title, date, content });
   res.redirect('/management/posts');
 });
 
