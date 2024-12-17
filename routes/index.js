@@ -13,9 +13,36 @@ router.get('/', async (req, res) => {
     const music = await Music.find().sort({ createdAt: -1 }).limit(6);
     const posts = await Post.find().sort({ createdAt: -1 }).limit(6);
     const products = await Product.find();
+    const products1 = [];
+    const products2 = [];
+    const products3 = [];
+
+    // Helper function to get random items without duplication
+    const getRandomItems = (source, exclude, count) => {
+      const result = [];
+      const availableItems = source.filter(item => !exclude.includes(item));
+      while (result.length < count && availableItems.length > 0) {
+        const randomIndex = Math.floor(Math.random() * availableItems.length);
+        const randomItem = availableItems.splice(randomIndex, 1)[0];
+        result.push(randomItem);
+      }
+      return result;
+    };
+
+    // Populate products1
+    products1.push(...getRandomItems(products, [], 3));
+
+    // Populate products2
+    products2.push(...getRandomItems(products, products1, 3));
+
+    // Populate products3
+    products3.push(...getRandomItems(products, [...products1, ...products2], 3));
+
 
     // Render homepage with all the fetched data
-    res.render('index', { videos, music, posts, products });
+    res.render('index', { videos, music, posts, products, products1, products2, products3 
+        
+    });
   } catch (error) {
     console.error(error);
     res.status(500).send('Error loading homepage');
@@ -158,7 +185,7 @@ router.get('/shop', async (req, res) => {
     // Populate products3
     products3.push(...getRandomItems(products, [...products1, ...products2], 3));
 
-    res.render('shop', { products1, products2, products3 });
+    res.render('shop', {products, products1, products2, products3 });
   } catch (error) {
     console.error(error);
     res.status(500).send('Error loading shop');
