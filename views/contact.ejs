@@ -120,7 +120,33 @@
 .about-us-wrapper {
   padding: 30px 30px;
 }
+@media (max-width: 768px) {
+  .about-us-wrapper {
+    padding: 35px; /* Apply 35px padding on all sides for mobile devices */
+  }
 
+  .about-us-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .about-us-content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .about-us-content a {
+    font-size: 1.1rem;
+  }
+
+  .about-us-content ul {
+    padding-left: 20px;
+  }
+
+  .about-us-content ul li {
+    margin-bottom: 10px;
+  }
+}
 @media (min-width: 768px) {
   .about-us-wrapper {
     padding: 30px 150px;
