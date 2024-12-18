@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+   
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  
     <!-- style css -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Responsive-->
@@ -21,8 +25,12 @@
       
   </script>
   <style>
-      body, html {
+     body, html {
     height: 100%;
+}
+
+.input-group .btn {
+  height: auto; /* Ensures the button matches input's height */
 }
 
 /* The hero image */
@@ -108,11 +116,56 @@
     text-align: left;
   }
 }
+
+.about-us-wrapper {
+  padding: 30px;
+}
+
+@media (min-width: 768px) {
+  .about-us-wrapper {
+    padding: 30px 150px;
+  }
+}
+
+.about-us-title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about-us-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+.partners-wrapper {
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .partners-wrapper {
+    padding: 30px 100px;
+  }
+}
+
+.partners-title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+}
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
 <img height="80px" src="img/auclogo.png" alt="logo" />
@@ -122,50 +175,87 @@
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/about">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/about">Contact</a>
         </li> 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Shop</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/shop">Shop</a>
         </li>  
-        <li class="nav-item">
-          <a class="nav-link" href="#">Video</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/video">Video</a>
         </li>  
-        <li class="nav-item dropdown">
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/video">Promotions</a>
+        </li> 
+        
+        <li style="margin-top:10px"  class="nav-item dropdown">
           <a class="nav-link
           dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Music</a>
           <ul class="dropdown-menu">
               <li class="dropdown-header">Music Categories</li>
-            <li><a class="dropdown-item" href="#">Afro Beat</a></li>
-            <li><a class="dropdown-item" href="#">Asaka</a></li>
+            <li><a class="dropdown-item" href="/afro">Afro Beat</a></li>
+            <li><a class="dropdown-item" href="/asaka">Asaka</a></li>
             <li>
-                <a class="dropdown-item" href="#">Dance Hall
+                <a class="dropdown-item" href="/danehall">Dance Hall
                 </a>
             </li>
              <li>
-                <a class="dropdown-item" href="#">Drill Music
+                <a class="dropdown-item" href="/drillmusic">Drill Music
                 </a>
             </li>
              <li>
-                <a class="dropdown-item" href="#">Gospel Music
+                <a class="dropdown-item" href="/gospel">Gospel Music
                 </a>
             </li>
              <li>
-                <a class="dropdown-item" href="#">Hiphop
+                <a class="dropdown-item" href="/hiphop">Hiphop
                 </a>
             </li>
-             <li>
-                <a class="dropdown-item" href="#">Hip Life
+             <li   class="nav-item">
+                <a class="dropdown-item" href="/hiplife">Hip Life
                 </a>
             </li>
           </ul>
         </li>
+        <li>
+            
+          <form class="d-flex align-items-center">
+  <div  class="input-group">
+    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-button">
+    <button style="margin-top:10px;" class="btn btn-outline-secondary input-group-text" type="submit" id="search-button">
+      <i class="bi bi-search"></i>
+    </button>
+  </div>
+</form>
+        </li>
+        <li style="margin-top:10px"  class="nav-item dropdown">
+          <a class="nav-link
+          dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Accounts</a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-header">UserAccount</li>
+            <li><a class="dropdown-item" href="">Login</a></li>
+            <li><a class="dropdown-item" href="">Sign Up</a></li>
+            <li>
+                <a class="dropdown-item" href="">Logout
+                </a>
+            </li>
+            
+          </ul>
+        </li>
+        <li style="margin-top:10px"  class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart 
+                        <span class="badge badge-pill badge-primary" id="cart-badge">0</span>
+                    </a>
+                </li>
+        <li>
       </ul>
     </div>
   </div>
@@ -184,64 +274,315 @@
                 </div>
   </div>
 </div>
-    <!-- music-box  -->
-    <div class="music-box about">
+
+
+<!-- Carousel -->
+<section class="carousel-container">
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="cards-wrapper">
+          <div class="card">
+        <img src="/images/music1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card d-none d-md-block">
+        <img src="/images/music2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card d-none d-md-block">
+        <img src="/images/music3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+          <div class="card">
+        <img src="/images/music1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card d-none d-md-block">
+        <img src="/images/music2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card d-none d-md-block">
+        <img src="/images/music3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+          <div class="card">
+        <img src="/images/music1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card d-none d-md-block">
+        <img src="/images/music2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card d-none d-md-block">
+        <img src="/images/music3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls/icons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+</section>
+
+<div style="" class="about-us-wrapper">
+  <h1 class="about-us-title">About Us</h1>
+  <p class="about-us-content">
+    AUC Entertainment is a dynamic, mobile audio production company dedicated to delivering exceptional sound solutions. We specialize in on-site recording, live event support, and content creation tailored to businesses, artists, and creators. From podcast and music recording to live sound streaming and corporate video production, we bring professional-grade services to your preferred location.
+  </p>
+  <p class="about-us-content">
+    Our mission extends beyond production, as we empower communities through educational workshops, partner with creators to elevate their projects, and provide personalized services like wedding recordings, church choir productions, and support for emerging local talent.
+  </p>
+  <p class="about-us-content">
+    At AUC Entertainment, we also offer mobile DJ services, equipment rentals, and branded merchandise to ensure your events and projects are seamlessly executed. With a focus on collaboration, innovation, and quality, we’re here to turn your ideas into reality while building a trusted creative network.
+  </p>
+</div>
+<div style="" class="about-us-wrapper">
+  <h1 class="about-us-title">What We Do</h1>
+
+  <p class="about-us-content">
+    <strong>1. Provide On-Site Recording Services</strong>
+    <ul>
+      <li><strong>Podcast Recording:</strong> Offer on-location podcast recording with high-quality audio equipment. Focus on businesses, influencers, or hobbyists who want a professional setup without visiting a studio.</li>
+      <li><strong>Music Recording:</strong> Partner with musicians who lack access to studios. Record vocals, instruments, or full sessions directly at gigs or convenient locations.</li>
+      <li><strong>Audiobook Narration:</strong> Collaborate with authors to record and produce audiobooks.</li>
+    </ul>
+  </p>
+
+  <p class="about-us-content">
+    <strong>2. Live Event Support</strong>
+    <ul>
+      <li><strong>Live Sound Recording:</strong> Record concerts, performances, or speeches. Offer post-production services to mix and master the audio for distribution.</li>
+      <li><strong>Streaming Services:</strong> Provide audio and video streaming setups for live events like weddings, conferences, or workshops.</li>
+    </ul>
+  </p>
+
+  <p class="about-us-content">
+    <strong>3. Content Creation for Brands</strong>
+    <ul>
+      <li><strong>Commercials and Jingles:</strong> Partner with local businesses to create music, jingles, or voiceovers for advertisements.</li>
+      <li><strong>Corporate Videos:</strong> Offer services for creating training videos, corporate event coverage, or promotional content.</li>
+    </ul>
+  </p>
+
+  <p class="about-us-content">
+    <strong>4. Mobile DJ and Audio Setup</strong>
+    <ul>
+      <li><strong>Event DJ Services:</strong> Use your production studio to double as a DJ setup for parties, weddings, or corporate events.</li>
+      <li><strong>Audio Equipment Rental:</strong> Rent out equipment (e.g., microphones, speakers, mixers) along with an operator.</li>
+    </ul>
+  </p>
+
+  <p class="about-us-content">
+    <strong>5. Educational Workshops</strong>
+    <ul>
+      <li><strong>Music Production Workshops:</strong> Teach aspiring artists or producers how to record, mix, and master using your mobile studio.</li>
+      <li><strong>Community Outreach:</strong> Host affordable workshops in schools or community centers. This can attract sponsorships and grants.</li>
+    </ul>
+  </p>
+
+  <p class="about-us-content">
+    <strong>6. Partner with Artists and Creators</strong>
+    <ul>
+      <li><strong>Mobile Studio for Tours:</strong> Work with touring musicians to provide portable recording services for demo tracks, tour diaries, or live sessions.</li>
+      <li><strong>Collaboration Spaces:</strong> Collaborate with YouTubers, TikTok creators, or social media influencers to provide studio-quality sound for their projects.</li>
+    </ul>
+  </p>
+
+  <p class="about-us-content">
+    <strong>7. Merchandise and Content Monetization</strong>
+    <ul>
+      <li><strong>Sell Recordings:</strong> Provide edited and mixed recordings to your clients for distribution or streaming.</li>
+      <li><strong>Branded Merch:</strong> Sell AUC Entertainment-branded T-shirts, caps, or stickers.</li>
+      <li><strong>Subscription Services:</strong> Offer membership packages for regular clients, providing discounted or premium services.</li>
+    </ul>
+  </p>
+
+  <p class="about-us-content">
+    <strong>8. Target Specific Niches</strong>
+    <ul>
+      <li><strong>Wedding Memories:</strong> Record high-quality sound for wedding ceremonies and speeches, offering mixed recordings as keepsakes.</li>
+      <li><strong>Church and Choir Recordings:</strong> Collaborate with religious organizations for recording sermons, choirs, or musical groups.</li>
+      <li><strong>Local Talent:</strong> Help local up-and-coming artists produce tracks at affordable rates, focusing on building a portfolio and community trust.</li>
+    </ul>
+  </p>
+
+  <p class="about-us-content">
+    <strong>Marketing Tips</strong>
+    <ul>
+      <li><strong>Social Media Promotion:</strong> Showcase your setup, services, and client projects on platforms like Instagram, TikTok, and YouTube.</li>
+      <li><strong>Referral Discounts:</strong> Referrals give you a discount.</li>
+    </ul>
+  </p>
+</div>
+ <!-- Music Section -->
+    <div class="partners-wrapper">
+  <h1 class="partners-title">Our Partners</h1>
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center">
+          <!-- Card 1 -->
+          <div class="card mx-3" style="width: 18rem;">
+            <img src="/img/team1.jpg" class="card-img-top" alt="Partner 1">
+            <div class="card-body text-center">
+              <h5 class="card-title">John Doe</h5>
+              <p class="card-text"></p>
+              <div>
+  <a href="#" class="text-dark me-3"><i class="fab fa-facebook"></i></a>
+  <a href="#" class="text-dark me-3"><i class="fab fa-twitter"></i></a>
+  <a href="#" class="text-dark"><i class="fab fa-instagram"></i></a>
+</div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="card mx-3" style="width: 18rem;">
+            <img src="/img/team2.jpg" class="card-img-top" alt="Partner 2">
+            <div class="card-body text-center">
+              <h5 class="card-title">Jane Smith</h5>
+              <p class="card-text"></p>
+              <div>
+  <a href="#" class="text-dark me-3"><i class="fab fa-facebook"></i></a>
+  <a href="#" class="text-dark me-3"><i class="fab fa-twitter"></i></a>
+  <a href="#" class="text-dark"><i class="fab fa-instagram"></i></a>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <!-- Card 3 -->
+          <div class="card mx-3" style="width: 18rem;">
+            <img src="/img/team3.jpg" class="card-img-top" alt="Partner 3">
+            <div class="card-body text-center">
+              <h5 class="card-title">Emily Brown</h5>
+              <p class="card-text"></p>
+              <div>
+  <a href="#" class="text-dark me-3"><i class="fab fa-facebook"></i></a>
+  <a href="#" class="text-dark me-3"><i class="fab fa-twitter"></i></a>
+  <a href="#" class="text-dark"><i class="fab fa-instagram"></i></a>
+</div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="card mx-3" style="width: 18rem;">
+            <img src="/img/team4.jpg" class="card-img-top" alt="Partner 4">
+            <div class="card-body text-center">
+              <h5 class="card-title">Michael Lee</h5>
+              <p class="card-text"></p>
+             <div>
+  <a href="#" class="text-dark me-3"><i class="fab fa-facebook"></i></a>
+  <a href="#" class="text-dark me-3"><i class="fab fa-twitter"></i></a>
+  <a href="#" class="text-dark"><i class="fab fa-instagram"></i></a>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+
+    <!-- Newsletter -->
+    <div class="Newsletter">
         <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="for-box">
-                        <i><img src="icon/icon1.png" alt="icon"/></i>
-                        <h3>Custom Player</h3>
-                        <p>t is a long established fact that a reader will be distracted by the readable </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="for-box">
-                        <i><img src="icon/icon2.png" alt="icon"/></i>
-                        <h3>Easy customize</h3>
-                        <p>t is a long established fact that a reader will be distracted by the readable </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="for-box">
-                        <i><img src="icon/icon3.png" alt="icon"/></i>
-                        <h3>Music Playlist</h3>
-                        <p>t is a long established fact that a reader will be distracted by the readable </p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="for-box">
-                        <i><img src="icon/icon4.png" alt="icon"/></i>
-                        <h3>Custom Gallery</h3>
-                        <p>t is a long established fact that a reader will be distracted by the readable </p>
+                <div class="col-md-12">
+
+                    <h2>Newsletter</h2>
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 padding-right">
+                            <input class="email" placeholder="Enter Your Email" type="text" name="Enter Your Email">
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 padding-left">
+                            <button class="submit-btn">Subscribe</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end music-box  -->
+   
+    <!-- end Newsletter -->
+ <section style="">
+     
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 padding">
-                <div class="img-box">
-                    <figure><img src="images/musicbg.jpg" alt="img" /></figure>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 padding">
-                <div class="text-box">
-                    <div class="box">
-                        <i><img src="images/5.png"/></i>
-                        <h3>MEET OUR Music STARS</h3>
-                        <p>It is a long established fact that a reader will be distracted by the readable
-                            <br> content of a page when looking at its layout. The point of using Lorem
-                            <br> content of a page when looking at its layout. The point of using Lorem</p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 <!--  footer -->
     <footer id="footer_with_contact">
@@ -329,5 +670,3 @@
 </body>
 
 </html>
-
-
