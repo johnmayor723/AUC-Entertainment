@@ -111,8 +111,7 @@
   </style>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
 <img height="80px" src="img/auclogo.png" alt="logo" />
@@ -122,54 +121,116 @@
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/about">About Us</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/about">Contact Us</a>
         </li> 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Shop</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/shop">Shop</a>
         </li>  
-        <li class="nav-item">
-          <a class="nav-link" href="#">Video</a>
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/video">Video</a>
         </li>  
-        <li class="nav-item dropdown">
+        <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/video">Promotions</a>
+        </li> 
+        <li style="margin-top:10px"  class="nav-item dropdown">
+          <a class="nav-link
+          dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">pages</a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-header">Important Links</li>
+            <li><a class="dropdown-item" href="">Link</a></li>
+            <li><a class="dropdown-item" href="">Link</a></li>
+            <li>
+                <a class="dropdown-item" href="">Link
+                </a>
+            </li>
+             <li>
+               <a class="dropdown-item" href="">Link
+             </a>
+            </li>
+             <li>
+        <a class="dropdown-item" href="">
+        Link
+                </a>
+            </li>
+             
+            
+          </ul>
+        </li>
+        <li>
+        <li style="margin-top:10px"  class="nav-item dropdown">
           <a class="nav-link
           dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Music</a>
           <ul class="dropdown-menu">
               <li class="dropdown-header">Music Categories</li>
-            <li><a class="dropdown-item" href="#">Afro Beat</a></li>
-            <li><a class="dropdown-item" href="#">Asaka</a></li>
+            <li><a class="dropdown-item" href="/afro">Afro Beat</a></li>
+            <li><a class="dropdown-item" href="/asaka">Asaka</a></li>
             <li>
-                <a class="dropdown-item" href="#">Dance Hall
+                <a class="dropdown-item" href="/danehall">Dance Hall
                 </a>
             </li>
              <li>
-                <a class="dropdown-item" href="#">Drill Music
+                <a class="dropdown-item" href="/drillmusic">Drill Music
                 </a>
             </li>
              <li>
-                <a class="dropdown-item" href="#">Gospel Music
+                <a class="dropdown-item" href="/gospel">Gospel Music
                 </a>
             </li>
              <li>
-                <a class="dropdown-item" href="#">Hiphop
+                <a class="dropdown-item" href="/hiphop">Hiphop
                 </a>
             </li>
-             <li>
-                <a class="dropdown-item" href="#">Hip Life
+             <li   class="nav-item">
+                <a class="dropdown-item" href="/hiplife">Hip Life
                 </a>
             </li>
           </ul>
         </li>
+        <li>
+            
+          <form class="d-flex align-items-center">
+  <div  class="input-group">
+    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-button">
+    <button style="margin-top:10px;" class="btn btn-outline-secondary input-group-text" type="submit" id="search-button">
+      <i class="bi bi-search"></i>
+    </button>
+  </div>
+</form>
+        </li>
+          <li style="margin-top:10px"  class="nav-item dropdown">
+          <a class="nav-link
+          dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Accounts</a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-header">UserAccount</li>
+            <li><a class="dropdown-item" href="">Login</a></li>
+            <li><a class="dropdown-item" href="">Sign Up</a></li>
+            <li>
+                <a class="dropdown-item" href="">Logout
+                </a>
+            </li>
+            
+          </ul>
+        </li>
+        <li style="margin-top:10px"  class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart 
+                        <span class="badge badge-pill badge-primary" id="cart-badge">0</span>
+                    </a>
+                </li>
+        <li>
       </ul>
     </div>
   </div>
 </nav>
+
 
 <div class="hero-image">
   <div class="">
