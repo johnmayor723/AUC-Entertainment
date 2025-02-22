@@ -35,7 +35,7 @@ app.use(methodOverride('_method'));
 // Routers
 const indexRouter = require('./routes/index');
 const managementRouter = require('./routes/management');
-const PaymentRouter = require('./routes/PaymentRouter');
+const PaymentRouter = require('./routes/PaymentRoute');
 
 // Use Routers
 app.use('/', indexRouter);
