@@ -263,23 +263,25 @@
             </div>
         </div>
         <div class="row">
-            <% products.forEach(music => { %>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <img src="<%= music.imageUrl %>" class="card-img-top" alt="<%= music.title %>">
-                    <div class="card-body">
-                        <h5 class="card-title mb-1" style="text-align: left;"><%= music.title %></h5>
-                        <p class="card-text" style="text-align: left;"><strong>$ <%= music.price %></strong></p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        
-                        
- 
-                        
-                    </div>
-                </div>
+    <% products.forEach(music => { %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card h-100">
+            <img src="<%= music.imageUrl %>" class="card-img-top" alt="<%= music.title %>">
+            <div class="card-body">
+                <h5 class="card-title mb-1" style="text-align: left;"><%= music.title %></h5>
+                <p class="card-text" style="text-align: left;"><strong>$ <%= music.price %></strong></p>
             </div>
-            <% }); %>
+            <div class="card-footer d-flex justify-content-between">
+                <form action="/cart/add" method="POST">
+                    <input type="hidden" name="name" value="<%= music.title %>">
+                    <input type="hidden" name="price" value="<%= music.price %>">
+                    <input type="hidden" name="imageUrl" value="<%= music.imageUrl %>">
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<% }); %>
         </div>
     </div>
 </div>
