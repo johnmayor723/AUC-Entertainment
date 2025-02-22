@@ -43,7 +43,7 @@ app.use('/management', managementRouter);
 app.use('/payment', PaymentRouter);
 
 // Start server
-const PORT = 8080;
+const PORT = 6000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
