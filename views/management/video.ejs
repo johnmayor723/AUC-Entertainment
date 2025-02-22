@@ -48,9 +48,10 @@
               <p class="card-text">Author: <%= video.author %></p>
               <p class="card-text">Year: <%= video.year %></p>
               <a href="<%= video.fileUrl %>" class="btn btn-primary">Watch</a>
-              <form action="/management/video/<%= video._id %>" method="POST" class="mt-2">
-                <button type="submit" class="btn btn-danger">Delete</button>
-              </form>
+             <form action="/management/video/<%= video._id %>?_method=DELETE" method="POST" class="mt-2">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
               <a class="btn btn-primary" href="/management/video/<%= video._id %>">
                Edit</a>
               </form>

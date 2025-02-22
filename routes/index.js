@@ -64,6 +64,26 @@ router.get('/album', (req, res) => {
   res.render('album'); // Renders the 'album.ejs' file from the views folder
 });
 
+// Route to get entertainment by category
+router.get('/entertainment/category/:category', async (req, res) => {
+  try {
+    const { category } = req.params;
+    const entertainments = await Entertainment.find({ category });
+
+    if (entertainments.length === 0) {
+      return res.status(404).send('No entertainment found for this category.');
+    }
+
+    res.render('category', { entertainments, category });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred while fetching entertainment content.');
+  }
+});
+
+
+
+
 // Videos Route
 router.get('/videos', async (req, res) => {
   try {

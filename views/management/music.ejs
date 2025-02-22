@@ -12,30 +12,43 @@
     <a href="/management" class="btn btn-secondary mb-3">Back to Dashboard</a>
 
     <!-- Form to create new music -->
-    <form action="/management/music" method="POST" class="mb-4">
-      <h4>Add New Music</h4>
-      <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" name="title" required>
-      </div>
-      <div class="mb-3">
-        <label for="author" class="form-label">Author</label>
-        <input type="text" class="form-control" id="author" name="author" required>
-      </div>
-      <div class="mb-3">
-        <label for="fileUrl" class="form-label">Music File URL</label>
-        <input type="text" class="form-control" id="fileUrl" name="fileUrl" required>
-      </div>
-      <div class="mb-3">
-        <label for="fileUrl" class="form-label">Music Artwork url</label>
-        <input type="text" class="form-control" id="imageUrl" name="imageUrl" required>
-      </div>
-      <div class="mb-3">
-        <label for="year" class="form-label">Year</label>
-        <input type="text" class="form-control" id="year" name="year" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Add Music</button>
-    </form>
+   <form action="/management/music" method="POST" class="mb-4">
+  <h4>Add New Music</h4>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" name="title" required>
+  </div>
+  <div class="mb-3">
+    <label for="author" class="form-label">Author</label>
+    <input type="text" class="form-control" id="author" name="author" required>
+  </div>
+  <div class="mb-3">
+    <label for="fileUrl" class="form-label">Music File URL</label>
+    <input type="text" class="form-control" id="fileUrl" name="fileUrl" required>
+  </div>
+  <div class="mb-3">
+    <label for="imageUrl" class="form-label">Music Artwork URL</label>
+    <input type="text" class="form-control" id="imageUrl" name="imageUrl" required>
+  </div>
+  <div class="mb-3">
+    <label for="year" class="form-label">Year</label>
+    <input type="text" class="form-control" id="year" name="year" required>
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Music Category</label>
+    <select class="form-select" id="category" name="category" required>
+      <option value="">Select a category</option>
+      <option value="afrobeat">Afro Beat</option>
+      <option value="asaka">Asaka</option>
+      <option value="dancehall">Dance Hall</option>
+      <option value="drill">Drill Music</option>
+      <option value="gospel">Gospel Music</option>
+      <option value="hiphop">Hip Hop</option>
+      <option value="hiplife">Hip Life</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Music</button>
+</form>
 
     <!-- List of existing music -->
     <h4>Existing Music</h4>
@@ -51,9 +64,10 @@
                <a class="btn btn-primary" href="/management/music/<%= song._id %>">
                Edit</a>
               
-              <form action="/management/music/<%= song._id %>?_method=DELETE" method="POST" class="mt-2">
-                <button type="submit" class="btn btn-danger">Delete</button>
-              </form>
+              <form<form action="/management/video/<%= song._id %>?_method=DELETE" method="POST" class="mt-2">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
             </div>
           </div>
         </div>

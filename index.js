@@ -25,9 +25,9 @@ mongoose.connect(DB_URL, {
 // Middleware
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-//Use express-ejs-layouts
+/*Use express-ejs-layouts
 app.use(expressLayouts);
-app.set('layout', 'layout');
+app.set('layout', 'layout');*/
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
@@ -43,7 +43,7 @@ app.use('/management', managementRouter);
 app.use('/payment', PaymentRouter);
 
 // Start server
-const PORT = 6000;
+const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
