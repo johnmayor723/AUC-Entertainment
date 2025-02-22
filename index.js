@@ -35,10 +35,12 @@ app.use(methodOverride('_method'));
 // Routers
 const indexRouter = require('./routes/index');
 const managementRouter = require('./routes/management');
+const PaymentRouter = require('./routes/PaymentRouter');
 
 // Use Routers
 app.use('/', indexRouter);
 app.use('/management', managementRouter);
+app.use('/payment', PaymentRouter);
 
 // Start server
 const PORT = 6000;
