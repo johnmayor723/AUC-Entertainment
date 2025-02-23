@@ -72,14 +72,16 @@ app.use((req, res, next) => {
 const indexRouter = require('./routes/index');
 const managementRouter = require('./routes/management');
 const PaymentRouter = require('./routes/PaymentRoute');
+const CartRouter = require('./routes/Cart');
 
 // Use Routers
 app.use('/', indexRouter);
 app.use('/management', managementRouter);
 app.use('/payment', PaymentRouter);
+app.use('/cart', CartRouter);
 
 // Start server
-const PORT = 6000;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

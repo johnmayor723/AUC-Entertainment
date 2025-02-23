@@ -25,7 +25,7 @@ router.post('/:id', (req, res) => {
     if (product) {
         product.quantity += qty;
     } else {
-        req.session.cart.items.push({ id, name, imageUrl, price, quantity: qty });
+        req.session.cart.items.push({ id, name, imageUrl, price, quantity: 1 });
     }
     calculateTotals(req.session.cart);
     console.log("Cart Items:", req.session.cart.items);
@@ -43,7 +43,7 @@ router.post('/:id', (req, res) => {
 
 // route to get cart
 router.get('/', (req, res) => {
-     console.log("cart in session:", req.session.cart )
+     console.log("All cart in session:", req.session.cart )
     res.render('shopping-cart', { cart: req.session.cart, title: "Cart" });
 });
 
@@ -98,3 +98,6 @@ router.get("/clearCart", (req, res) => {
   req.flash('success_msg', 'Cart has been cleared successfully.'); 
   res.redirect('/cart');
 });
+
+
+module.exports = router;
