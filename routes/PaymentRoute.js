@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require('axios');
 const Stripe = require('stripe');
+const Order = require("../models/Order)
 const nodemailer = require('nodemailer');
 const {generateOrderEmailHTML} = require('../helpers')
 
@@ -55,12 +56,13 @@ router.post('/charge',  function(req, res, next) {
       var order = new Order({
          // user: req.user
           cart: cart,
+          email
           address: req.body.address,
           name: req.body.name,
           paymentId: charge.id
       });
       const userEmailOptions = {
-    from: '"FoodDeck" <fooddeck3@gmail.com>', // Display name with email in brackets
+    from: ' "AUC ENTERTAINMENT" <fooddeck3@gmail.com>', // Display name with email in brackets
     to: email,
     subject: 'Order Confirmation - FoodDeck',
     html: generateOrderEmailHTML(cart, orderPayload)
