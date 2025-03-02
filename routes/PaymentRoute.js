@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require('axios');
+const Stripe = require('stripe');
 const nodemailer = require('nodemailer');
 const {generateOrderEmailHTML} = require('../helpers')
 
