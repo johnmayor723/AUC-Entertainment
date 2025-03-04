@@ -74,7 +74,24 @@ router.get('/entertainment/category/:category', async (req, res) => {
       return res.status(404).send('No entertainment found for this category.');
     }
 
-    res.render('category', { entertainments, category });
+    res.render('categories', {music: entertainment });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred while fetching entertainment content.');
+  }
+});
+
+// Route to get entertainment by category
+router.get('/music/category/:category', async (req, res) => {
+  try {
+    const { category } = req.params;
+    const music = await Music.find({ category });
+
+    if (music.length === 0) {
+      return res.status(404).send('No music found for this category.');
+    }
+
+    res.render('categories', {music });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred while fetching entertainment content.');
@@ -85,7 +102,7 @@ router.get('/entertainment/category/:category', async (req, res) => {
 
 
 // Videos Route
-router.get('/videos', async (req, res) => {
+router.get('/video', async (req, res) => {
   try {
     const videos = await Video.find();
     res.render('videos', { videos });
@@ -211,6 +228,23 @@ router.get('/shop', async (req, res) => {
     res.status(500).send('Error loading shop');
   }
 });
+// Show Single Product Page
+router.get('/shop/:id', async (req, res) => {
+    try {
+        console.log("we got here", req.params.id)
+        
+        const product = await Product.findById(req.params.id);
+        console.log("found products:",product)
+        if (!product) {
+            return res.status(404).send('Product not found');
+        }
+        res.render('single-product', { product });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
+});
+
 
 // Posts Route (Blog)
 router.get('/posts', async (req, res) => {

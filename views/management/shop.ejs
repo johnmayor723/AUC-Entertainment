@@ -12,26 +12,35 @@
     <a href="/management" class="btn btn-secondary mb-3">Back to Dashboard</a>
 
     <!-- Form to create new product -->
-    <form action="/management/shop" method="POST" class="mb-4">
-      <h4>Add New Product</h4>
-      <div class="mb-3">
+   <form action="/management/shop" method="POST" class="mb-4">
+    <h4>Add New Product</h4>
+    
+    <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" id="title" name="title" required>
-      </div>
-      <div class="mb-3">
+    </div>
+    
+    <div class="mb-3">
         <label for="price" class="form-label">Price</label>
         <input type="number" step="0.01" class="form-control" id="price" name="price" required>
-      </div>
-      <div class="mb-3">
-        <label for="imageUrl" class="form-label">Image URL</label>
-        <input type="text" class="form-control" id="imageUrl" name="imageUrl" required>
-      </div>
-      <div class="mb-3">
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Image URLs (Max 4)</label>
+        <div id="imageInputs">
+            <input type="text" class="form-control mb-2" name="images[]" placeholder="Image URL 1" required>
+        </div>
+        <button type="button" id="addImage" class="btn btn-secondary btn-sm">+ Add More</button>
+    </div>
+    
+    <div class="mb-3">
         <label for="description" class="form-label">Description</label>
         <textarea class="form-control" id="description" name="description" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Add Product</button>
-    </form>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+
 
     <!-- List of existing products -->
     <h4>Existing Products</h4>
@@ -40,7 +49,7 @@
   <% products.forEach(product => { %>
     <div class="col-md-3 mb-4">
       <div class="card">
-        <img src="<%= product.imageUrl %>" class="card-img-top" alt="<%= product.title %>">
+        <img src="<%= product.images[0]%>" class="card-img-top" alt="<%= product.title %>">
         <div class="card-body">
           <h5 class="card-title"><%= product.title %></h5>
           <p class="card-text">$<%= product.price %></p>
@@ -55,5 +64,21 @@
   <% }) %>
 </div>
   </div>
+  <script>
+    document.getElementById("addImage").addEventListener("click", function () {
+        let imageInputs = document.querySelectorAll('input[name="images[]"]');
+        if (imageInputs.length < 4) {
+            let newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.name = "images[]";
+            newInput.classList.add("form-control", "mb-2");
+            newInput.placeholder = `Image URL ${imageInputs.length + 1}`;
+            document.getElementById("imageInputs").appendChild(newInput);
+        } else {
+            alert("You can only add up to 4 images.");
+        }
+    });
+</script>
+
 </body>
 </html>

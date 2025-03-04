@@ -212,9 +212,24 @@ router.get('/shop', async (req, res) => {
 
 // Create Product
 router.post('/shop', async (req, res) => {
-  const { imageUrl, title, price, description } = req.body;
-  await Product.create({ imageUrl, title, price, description });
-  res.redirect('/management/shop');
+  try {
+    const { images, title, price, description } = req.body;
+
+    // Ensure images is an array and limit to 4
+    const imageArray = Array.isArray(images) ? images.slice(0, 4) : [images];
+
+    await Product.create({ images: imageArray, title, price, description })
+  .then((createdProduct) => {
+    console.log('Product created successfully:', createdProduct);
+  })
+  .catch((error) => {
+    console.error('Error creating product:', error);
+  });
+    res.redirect('/management/shop');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
 });
 
 // Route to display a single product's details
@@ -240,7 +255,7 @@ router.put('/shop/:id', async (req, res) => {
 });
 
 // Delete Product
-router.delete('shop/:id', async (req, res) => {
+router.delete('/shop/:id', async (req, res) => {
   await Product.findByIdAndDelete(req.params.id);
   res.redirect('/management/shop');
 });
