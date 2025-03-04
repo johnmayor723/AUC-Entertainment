@@ -1,4 +1,4 @@
-⁹<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>AUC Entertainment - Cart</title>
@@ -417,7 +417,7 @@
                 <% cart.items.forEach(item => { %>
                     <tr>
                         <td><img src="<%= item.imageUrl %>" width="50" alt="<%= item.name %>"></td>
-                        <td><%= item.name %></td>
+                        <td><%= item.title %></td>
                         <td>₦<%= item.price %></td>
                         <td><%= item.quantity %></td>
                         <td>₦<%= (item.price * item.quantity) %></td>
@@ -432,9 +432,10 @@
         </div>
 
         <h3>Checkout</h3>
-        <form action="/process" method="POST" class="checkout-form">
+        <form action="/payment/charge" method="POST" class="checkout-form">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required>
+            
             
             <label for="email">Email Address:</label>
             <input type="email" id="email" name="email" required>
@@ -442,8 +443,8 @@
 <div id="card-element">
                             <!-- A Stripe Element will be inserted here. -->
                             </div>
-            <input type="hidden" name="totalAmount" value="<%= session.cart.totalPrice %>">
-            <input type="hidden" name="totalQty" value="<%= cart.totalAmount %>">
+            <input type="hidden" name="Amount" value="<%= session.cart.totalAmount %>">
+            <input type="hidden" name="totalQty" value="<%= cart.totalQty %>">
             
             <button style="margin-top:40px" type="submit">Proceed to Payment</button>
         </form>

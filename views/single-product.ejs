@@ -383,6 +383,7 @@ h1 {
             <div class="ratings">⭐⭐⭐⭐☆ (4.5)</div>
                <form action="/cart/<%= product._id %>" method="POST">
                     <input type="hidden" name="_id" value="<%= product._id %>">
+                     <input type="hidden" name="imageUrl" value="<%= product.images[0] %>">
                     <input type="hidden" name="title" value="<%= product.title %>">
                     <input type="hidden" name="price" value="<%= product.price %>">
                     <button type="submit" class="add-to-cart">Add to Cart</button>

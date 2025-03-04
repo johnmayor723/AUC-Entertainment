@@ -17,15 +17,15 @@ const calculateTotals = (cart) => {
 //route to add a product to cart.
 router.post('/:id', (req, res) => {
     try {
-    const { name, price, imageUrl, qty } = req.body;
+    const { title, price, imageUrl } = req.body;
     const id = req.params.id
     
     let product = findProductInCart(req.session.cart.items, id);
 
     if (product) {
-        product.quantity += qty;
+        product.quantity += 1;
     } else {
-        req.session.cart.items.push({ id, name, imageUrl, price, quantity: 1 });
+        req.session.cart.items.push({ id, title, imageUrl, price, quantity: 1 });
     }
     calculateTotals(req.session.cart);
     console.log("Cart Items:", req.session.cart.items);

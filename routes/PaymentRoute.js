@@ -36,22 +36,27 @@ router.post('/', (req, res, next) => {
 
 
 router.post('/charge',  function(req, res, next) {
-  
+  console.log("Payment route reached")
   if (!req.session.cart) {
       return res.redirect('/products');
   }
-  var cart = req.session.cart;
+  var amount = req.session.cart.totalAmount;
+  console.log("amount to be paid:", amount, req.session.cart)
   var stripe = require("stripe")(STRIPE_SECRET );
+  //console.log("cart details:", cart)
+  const exchangeRate = 0.92; // Example rate (fetch real-time rates for accuracy)
+const amountInCents = Math.round(amount * exchangeRate * 100);
 
   stripe.charges.create({
-      amount: cart.totalPrice * 100 * 1.16,
+      amount: amountInCents,
       currency: "EUR",
       source: req.body.token, // obtained with Stripe.js
       description: "Test Charge"
   }, function(err, charge) {
       if (err) {
+          console.log("error occured:", err)
           req.flash('error', err.message);
-          return res.redirect('/charge');
+          return res.redirect('/cart');
       }
       var order = new Order({
          // user: req.user

@@ -280,8 +280,10 @@
             <div class="card-footer d-flex justify-content-between">
                 <form action="/cart/<%= music._id %>" method="POST">
                     <input type="hidden" name="_id" value="<%= music._id %>">
+                      <input type="hidden" name="imageUrl" value="<%= music.images[0] %>">
                     <input type="hidden" name="title" value="<%= music.title %>">
                     <input type="hidden" name="price" value="<%= music.price %>">
+                      <input type="hidden" name="title" value="<%= music.title %>">
                     <button type="submit" class="btn btn-primary">Add to Cart</button>
                 </form>
             </div>
