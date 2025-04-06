@@ -469,41 +469,7 @@
         </div>
     </div>
 </div>
-<!-- Video Section -->
-<div id="video-section" class="Albums py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage mb-4">
-                    <h3 style="font-size: 25px; font-weight:bold;" class="titlepage" >Our Curated Videos</h3>
-                    <span>Take a break and explore our collection of captivating visuals. From music videos to short films, enjoy every frame.
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <% videos.forEach(video => { %>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <img src="<%= video.imageUrl %>" class="card-img-top" alt="<%= video.title %>">
-                    <div class="card-body">
-                        <h5 class="card-title mb-1" style="text-align: left;"><%= video.title %></h5>
-                        <p class="card-text" style="text-align: left;">By <strong><%= video.author %></strong></p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <a href="<%= video.fileUrl %>" class="btn btn-danger">
-                            <i class="fas fa-play"></i> Watch
-                        </a>
-                        <a href="<%= video.fileUrl %>" download class="btn btn-secondary">
-                            <i class="fas fa-download"></i> Download
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <% }); %>
-        </div>
-    </div>
-</div>
+
     <!-- Download -->
     <div id="screenshot" class="Lastestnews">
         <div class="container">
@@ -545,48 +511,68 @@
     </div>
     <!-- end Download -->
 
-    <!-- Albums -->
-    <div id="screenshot" class="Albums">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="titlepage">
-                        <h2>Albums-box </h2>
-                        <span>It is a long established fact that a reader will be distracted by the readable <br>content of a page when looking at its layout. The point of using Lorem </span>
-                    </div>
+<!-- Albums -->
+<div id="screenshot" class="Albums">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Music Production and Pricing</h2>
+                    <span>Music production session prices in Germany vary depending on the studio, location, and services offered.</span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                    <div class="Albums-box">
-                        <figure>
-                            <a href="images/album1.jpg" class="fancybox" rel="ligthbox">
-                                <img src="images/album1.jpg" class="zoom img-fluid " alt="">
-                            </a>
-                            <span class="hoverle">
-                        <a href="images/album1.jpg" class="fancybox" rel="ligthbox"><img src="images/search.png"></a>
-                        </span>
-                        </figure>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
-                    <div class="Albums-box">
-                        <figure>
-                            <a href="images/album2.jpg" class="fancybox" rel="ligthbox ">
-                                <img src="images/album2.jpg" class="zoom img-fluid " alt="">
-                            </a>
-                            <span class="hoverle">
-                        <a href="images/album2.jpg" class="fancybox" rel="ligthbox"><img src="images/search.png"></a>
-                        </span>
-                        </figure>
-                    </div>
-                </div>
-
             </div>
         </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
+                <div class="Albums-box">
+                    <figure>
+                        <a href="images/album1.jpg" class="fancybox" rel="lightbox">
+                            <img src="images/mulli1.jpg" class="zoom img-fluid" alt="">
+                        </a>
+                        <span class="hoverle">
+                            <a href="images/mulli2.jpg" class="fancybox" rel="lightbox">
+                                <img src="images/search.png" alt="Zoom icon">
+                            </a>
+                        </span>
+                    </figure>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin">
+                <div class="Albums-box">
+                    <figure>
+                        <a href="images/album2.jpg" class="fancybox" rel="lightbox">
+                            <img src="images/album2.jpg" class="zoom img-fluid" alt="">
+                        </a>
+                        <span class="hoverle">
+                            <a href="images/album2.jpg" class="fancybox" rel="lightbox">
+                                <img src="images/search.png" alt="Zoom icon">
+                            </a>
+                        </span>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing List Row -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="pricing-list">
+                    <ul>
+                        <li><strong>Studio Flat Fee</strong>: €95 per hour, including a sound engineer¹</li>
+                        <li><strong>Studio Rate per Day</strong>: €700 for 8 hours, including a sound engineer¹</li>
+                        <li><strong>Music Production</strong>: Starting at €3,000 per track, jingle, or spot¹</li>
+                        <li><strong>Mixing</strong>: €150–€300, depending on the number of stems²</li>
+                        <li><strong>Mastering</strong>: €8.50 (stereo) to €140 (stem)³</li>
+                    </ul>
+                    <p>Some studios also offer package deals, discounts for bulk bookings, or membership programs. For instance, <em>432Studios in Berlin</em> offers a <strong>New Client Discount</strong> of 20% off their services³.</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Pricing List Row -->
+
     </div>
-    <!-- end Albums -->
-    
+</div>
+<!-- end Albums -->
     <div class="partners-wrapper">
   <h1 class="partners-title">Our Partners</h1>
   <div id="demo" class="carousel slide" data-bs-ride="carousel">
