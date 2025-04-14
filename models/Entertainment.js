@@ -9,7 +9,7 @@ const EntertainmentSchema = new mongoose.Schema({
   category: { 
     type: String, 
     required: true, 
-    enum: ['Comedy Videos', 'AUC Entertainment Videos', 'Street Shows', 'Podcast', 'Freestyle', 'News'] 
+  
   }
 });
 
