@@ -49,6 +49,20 @@ router.get('/entertainment', async (req, res) => {
   }
 });
 
+
+
+// POST create a new entertainment
+router.post('/entertainment', async (req, res) => {
+  try {
+    const { title, author, fileUrl, imageUrl, year, category } = req.body;
+    await Entertainment.create({ title, author, fileUrl, imageUrl, year, category });
+    res.redirect('/management/entertainment');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error creating entertainment');
+  }
+});
+
 // Route to display a single entertainment's details
 router.get('/entertainment/:id', async (req, res) => {
   try {
