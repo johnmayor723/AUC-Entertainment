@@ -66,21 +66,22 @@ router.get('/album', (req, res) => {
 });
 
 // Route to get entertainment by category
-router.get('/entertainment/category/:category', async (req, res) => {
+router.get('/music/category/:category', async (req, res) => {
   try {
     const { category } = req.params;
-    const entertainments = await Entertainment.find({ category });
+    const music = await Music.find({ category });
 
-    if (entertainments.length === 0) {
-      return res.status(404).send('No entertainment found for this category.');
+    if (!music.length) {
+      return res.status(404).send('No music found for this category.');
     }
 
-    res.render('categories', {music: entertainments });
+    res.render('categories', { music, category });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred while fetching entertainment content.');
   }
 });
+
 
 // Route to get entertainment by category
 router.get('/music/category/:category', async (req, res) => {
