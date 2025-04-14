@@ -107,7 +107,7 @@ router.get('/entertainment/category/:category', async (req, res) => {
 router.get('/video', async (req, res) => {
   try {
     const videos = await Video.find();
-    res.render('videos', { videos, title: Videos });
+    res.render('videos', { videos, title: "Videos" });
   } catch (error) {
     console.error(error);
     res.status(500).send('Error loading videos');
