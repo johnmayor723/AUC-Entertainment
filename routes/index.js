@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Video = require('../models/Video');
 const Music = require('../models/Music');
+const Entertainment = require('../models/entertainement');
 const Product = require('../models/Shop');
 const Post = require('../models/Post');
 
