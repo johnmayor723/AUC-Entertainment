@@ -75,7 +75,7 @@ router.get('/entertainment/category/:category', async (req, res) => {
       return res.status(404).send('No entertainment found for this category.');
     }
 
-    res.render('categories', {music: entertainment });
+    res.render('categories', {music: entertainments });
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred while fetching entertainment content.');
