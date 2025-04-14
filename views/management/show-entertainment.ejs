@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Entertainment - <%= entertainment.title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+    <h1 class="mb-4 text-center">Edit Entertainment</h1>
+    <div class="text-center mb-4">
+        <a href="/management/entertainment" class="btn btn-secondary">Back to Management</a>
+    </div>
+
+    <form action="/management/entertainment/<%= entertainment._id %>?_method=PUT" method="POST" class="card p-4 shadow">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="<%= entertainment.title %>" required>
+            </div>
+            <div class="col-md-6">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="author" name="author" value="<%= entertainment.author %>" required>
+            </div>
+            <div class="col-md-6">
+                <label for="fileUrl" class="form-label">File URL</label>
+                <input type="text" class="form-control" id="fileUrl" name="fileUrl" value="<%= entertainment.fileUrl %>" required>
+            </div>
+            <div class="col-md-6">
+                <label for="imageUrl" class="form-label">Artwork URL</label>
+                <input type="text" class="form-control" id="imageUrl" name="imageUrl" value="<%= entertainment.imageUrl %>" required>
+            </div>
+            <div class="col-md-4">
+                <label for="year" class="form-label">Year</label>
+                <input type="text" class="form-control" id="year" name="year" value="<%= entertainment.year %>" required>
+            </div>
+            <div class="col-md-8">
+                <label for="category" class="form-label">Category</label>
+                <select class="form-select" id="category" name="category" required>
+                    <option value="comedyvideos" <%= entertainment.category === 'comedyvideos' ? 'selected' : '' %>>Comedy Videos</option>
+                    <option value="aucentertainmentvideo" <%= entertainment.category === 'aucentertainmentvideo' ? 'selected' : '' %>>AUC Entertainment Videos</option>
+                    <option value="streetshows" <%= entertainment.category === 'streetshows' ? 'selected' : '' %>>Street Shows</option>
+                    <option value="podcast" <%= entertainment.category === 'podcast' ? 'selected' : '' %>>Podcast</option>
+                    <option value="freestyle" <%= entertainment.category === 'freestyle' ? 'selected' : '' %>>Freestyle</option>
+                    <option value="News" <%= entertainment.category === 'News' ? 'selected' : '' %>>News</option>
+                </select>
+            </div>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success w-100">Update Entertainment</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
