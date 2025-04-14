@@ -84,10 +84,10 @@ router.get('/music/category/:category', async (req, res) => {
 
 
 // Route to get entertainment by category
-router.get('/music/category/:category', async (req, res) => {
+router.get('/entertainment/category/:category', async (req, res) => {
   try {
     const { category } = req.params;
-    const music = await Music.find({ category });
+    const music = await Entertainment.find({ category });
 
     if (music.length === 0) {
       return res.status(404).send('No music found for this category.');
