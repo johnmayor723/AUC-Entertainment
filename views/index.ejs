@@ -28,6 +28,9 @@
      body, html {
     height: 100%;
 }
+#morecontents{
+display:none
+}
 
 .input-group .btn {
   height: auto; /* Ensures the button matches input's height */
@@ -441,8 +444,27 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage mb-4">
-                    <h3 style="font-size: 25px; font-weight:bold;">Your Favorite Tunes</h3>
-                    <span>Discover handpicked tracks that will elevate your mood. From timeless classics to the latest hits, let the rhythm take over.</span>
+                    <h3 style="font-size: 25px; font-weight:bold;">AUC Music(Afro groove)</h3>
+                    <span><p>Get ready to groove to the rhythm of Africa! AUC Entertainment proudly presents Afro-Groove, the ultimate fusion of African beats, melodic harmonies, and infectious energy.
+</p>
+<div id='morecontents'>
+<p>
+Afro-Groove is more than just a music genre - it's an experience. Born from the rich cultural heritage of Africa, this genre combines traditional instrumentation with modern production techniques, creating a unique sound that's both nostalgic and innovative.
+
+</p>
+<p>
+Imagine the percussive rhythms of Afrobeats, the soulful melodies of Highlife, and the energetic vibes of Dancehall, all blended together with a dash of contemporary flair. That's Afro-Groove - a genre that's guaranteed to get you moving, grooving, and feeling the heat of Africa.
+
+
+</p>
+<p>
+Join the Afro-Groove movement and discover a new world of sound. AUC Entertainment is committed to showcasing the best of Afro-Groove talent, from emerging artists to established stars. Stay tuned for exclusive releases, live performances, and more. The groove is on!"
+</p>
+</div>
+<p id="moreBtn" onclick="document.getElementById('moreContent').style.display = 'block'; this.style.display = 'none';">
+    Click More
+</p>
+</span>
                 </div>
             </div>
         </div>
@@ -772,5 +794,6 @@
         </div>
     </footer>
 </body>
-
+<script>
+<script>
 </html>
