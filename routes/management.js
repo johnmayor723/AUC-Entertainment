@@ -11,6 +11,12 @@ const Entertainment = require('../models/Entertainment');
 const ADMIN_USERNAME = 'admin';
 const ADMIN_PASSWORD = 'Admin@p^sw@rd2024';
 
+// dashboard route
+
+router.get('/', (req, res) => {
+  res.render('management/admin');
+});
+
 // Login Page
 router.get('/login', (req, res) => {
   res.render('management/login');
