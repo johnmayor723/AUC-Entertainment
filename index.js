@@ -81,7 +81,7 @@ app.use('/payment', PaymentRouter);
 app.use('/cart', CartRouter);
 
 // Start server
-const PORT = 6000;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

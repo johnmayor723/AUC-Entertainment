@@ -51,6 +51,16 @@ display:none
   position: relative;
 }
 
+.about-us-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.about-us-list li {
+  display: list-item; /* This forces it to render bullets even if styles override it */
+}
+
 /* Place text in the middle of the image */
 .hero-text {
   text-align: center;
@@ -176,7 +186,7 @@ display:none
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
 <img height="80px" src="img/auclogo.png" alt="logo" />
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -188,7 +198,7 @@ display:none
           <a class="nav-link" href="/">Home</a>
         </li>
         <li style="margin-top:10px" class="nav-item">
-          <a class="nav-link" href="/about">About Us</a>
+          <a class="nav-link" href="#about-us">About Us</a>
         </li>
         <li style="margin-top:10px" class="nav-item">
           <a class="nav-link" href="/about">Contact Us</a>
@@ -197,84 +207,18 @@ display:none
           <a class="nav-link" href="/shop">Shop</a>
         </li>  
       
-        <li style="margin-top:10px" class="nav-item">
-          <a class="nav-link" href="/video">Promotions</a>
-        </li> 
      <li style="margin-top:10px" class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Entertainments</a>
   <ul class="dropdown-menu">
     <li class="dropdown-header">Entertainment Categories</li>
       <li style="margin-top:10px" class="nav-item">
-          <a class="nav-link" href="/video">Video</a>
+          <a class="dropdown-item" href="/video">Video</a>
         </li>  
-    <li><a class="dropdown-item" href="/entertainment/category/comedy">Comedy Videos</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/aucentertainmentvideos">AUC Entertainment Videos</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/streetshows">Street Shows</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/podcast">Podcasts</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/freestyle">Freestyle</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/news">News</a></li>
+    <li><a class="dropdown-item" href="/music">Music</a></li>
+
   </ul>
 </li>
-        <li style="margin-top:10px"  class="nav-item dropdown">
-          <a class="nav-link
-          dropdown-toggle" href="music" role="button" data-bs-toggle="dropdown">Music</a>
-          <ul class="dropdown-menu">
-              <li class="dropdown-header">Music Categories</li>
-              
-            <li><a class="dropdown-item" href="/music">All Music</a>
-            </li>
-            <li><a class="dropdown-item" href="/music/category/aucentertainment">AUC Entertainment Music(Afro groove)</a>
-            </li>
-            <li><a class="dropdown-item" href="/music/category/afro">Afro Beat</a>
-            </li>
-            <li><a class="dropdown-item" href="/music/category/asaka">Asaka</a></li>
-            <li>
-                <a class="dropdown-item" href="/music/category/dancehall">Dance Hall
-                </a>
-            </li>
-             <li>
-                <a class="dropdown-item" href="/music/category/drillmusic">Drill Music
-                </a>
-            </li>
-             <li>
-                <a class="dropdown-item" href="/music/category/gospel">Gospel Music
-                </a>
-            </li>
-             <li>
-                <a class="dropdown-item" href="/music/category/hiphop">Hiphop
-                </a>
-            </li>
-             <li   class="nav-item">
-                <a class="dropdown-item" href="/music/category/hiplife">Hip Life
-                </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-            
-          <form class="d-flex align-items-center">
-  <div  class="input-group">
-    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-button">
-    <button style="margin-top:10px;" class="btn btn-outline-secondary input-group-text" type="submit" id="search-button">
-      <i class="bi bi-search"></i>
-    </button>
-  </div>
-</form>
-        </li>
-          <li style="margin-top:10px"  class="nav-item dropdown">
-          <a class="nav-link
-          dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Accounts</a>
-          <ul class="dropdown-menu">
-              <li class="dropdown-header">UserAccount</li>
-            <li><a class="dropdown-item" href="">Login</a></li>
-            <li><a class="dropdown-item" href="">Sign Up</a></li>
-            <li>
-                <a class="dropdown-item" href="">Logout
-                </a>
-            </li>
-            
-          </ul>
-        </li>
+      
         <li style="margin-top:10px"  class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="fas fa-shopping-cart"></i>
@@ -302,100 +246,149 @@ display:none
   </div>
 </div>
 
-
 <!-- Carousel -->
 <section class="carousel-container">
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-  <!-- Indicators/dots -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-  </div>
-
-  <!-- The slideshow/carousel -->
-  <div class="carousel-inner">
-    
-    <div class="carousel-item active">
-      <div class="cards-wrapper">
-          <div class="card">
-        <img src="/images/music1.jpg" class="card-img-top img-fluid p3"  style="height: 250px; object-fit: cover; alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card d-none d-md-block">
-        <img src="/images/music2.jpg" class="card-img-top img-fluid p3"  style="height: 250px; object-fit: cover; alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card d-none d-md-block">
-        <img src="/images/music3.jpg"  class="card-img-top img-fluid p3"  style="height: 250px; object-fit: cover; alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      </div>
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
     </div>
-    <div class="carousel-item">
-      <div class="cards-wrapper">
-          <div class="card">
-        <img src="/images/music1.jpg"  class="card-img-top img-fluid p3"  style="height: 250px; object-fit: cover; alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card d-none d-md-block">
-        <img src="/images/music2.jpg" class="card-img-top img-fluid p3"  style="height: 250px; object-fit: cover; alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card d-none d-md-block">
-        <img src="/images/music3.jpg"  class="card-img-top img-fluid p3"  style="height: 250px; object-fit: cover; alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Left and right controls/icons -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+
+      <!-- First Slide -->
+      <div class="carousel-item active">
+        <div class="cards-wrapper">
+          <div class="card">
+            <img src="<%= posts[0].images[0] %>" class="card-img-top img-fluid p3" style="height: 250px; object-fit: cover;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= posts[0].title %></h5>
+              <p class="card-text">$<%= posts[0].price %></p>
+              <form action="/cart/<%= posts[0]._id %>" method="POST">
+                <input type="hidden" name="_id" value="<%= posts[0]._id %>">
+                <input type="hidden" name="imageUrl" value="<%= posts[0].images[0] %>">
+                <input type="hidden" name="title" value="<%= posts[0].title %>">
+                <input type="hidden" name="price" value="<%= posts[0].price %>">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+          <div class="card d-none d-md-block">
+            <img src="<%= posts[1].images[0] %>" class="card-img-top img-fluid p3" style="height: 250px; object-fit: cover;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= posts[1].title %></h5>
+              <p class="card-text">$<%= posts[1].price %></p>
+              <form action="/cart/<%= posts[1]._id %>" method="POST">
+                <input type="hidden" name="_id" value="<%= posts[1]._id %>">
+                <input type="hidden" name="imageUrl" value="<%= posts[1].images[0] %>">
+                <input type="hidden" name="title" value="<%= posts[1].title %>">
+                <input type="hidden" name="price" value="<%= posts[1].price %>">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+          <div class="card d-none d-md-block">
+            <img src="<%= posts[2].images[0] %>" class="card-img-top img-fluid p3" style="height: 250px; object-fit: cover;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= posts[2].title %></h5>
+              <p class="card-text">$<%= posts[2].price %></p>
+              <form action="/cart/<%= posts[2]._id %>" method="POST">
+                <input type="hidden" name="_id" value="<%= posts[2]._id %>">
+                <input type="hidden" name="imageUrl" value="<%= posts[2].images[0] %>">
+                <input type="hidden" name="title" value="<%= posts[2].title %>">
+                <input type="hidden" name="price" value="<%= posts[2].price %>">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Slide -->
+      <div class="carousel-item">
+        <div class="cards-wrapper">
+          <div class="card">
+            <img src="<%= posts[3].images[0] %>" class="card-img-top img-fluid p3" style="height: 250px; object-fit: cover;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= posts[3].title %></h5>
+              <p class="card-text">$<%= posts[3].price %></p>
+              <form action="/cart/<%= posts[3]._id %>" method="POST">
+                <input type="hidden" name="_id" value="<%= posts[3]._id %>">
+                <input type="hidden" name="imageUrl" value="<%= posts[3].images[0] %>">
+                <input type="hidden" name="title" value="<%= posts[3].title %>">
+                <input type="hidden" name="price" value="<%= posts[3].price %>">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+          <div class="card d-none d-md-block">
+            <img src="<%= posts[4].images[0] %>" class="card-img-top img-fluid p3" style="height: 250px; object-fit: cover;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= posts[4].title %></h5>
+              <p class="card-text">$<%= posts[4].price %></p>
+              <form action="/cart/<%= posts[4]._id %>" method="POST">
+                <input type="hidden" name="_id" value="<%= posts[4]._id %>">
+                <input type="hidden" name="imageUrl" value="<%= posts[4].images[0] %>">
+                <input type="hidden" name="title" value="<%= posts[4].title %>">
+                <input type="hidden" name="price" value="<%= posts[4].price %>">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+          <div class="card d-none d-md-block">
+            <img src="<%= posts[5].images[0] %>" class="card-img-top img-fluid p3" style="height: 250px; object-fit: cover;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= posts[5].title %></h5>
+              <p class="card-text">$<%= posts[5].price %></p>
+              <form action="/cart/<%= posts[5]._id %>" method="POST">
+                <input type="hidden" name="_id" value="<%= posts[5]._id %>">
+                <input type="hidden" name="imageUrl" value="<%= posts[5].images[0] %>">
+                <input type="hidden" name="title" value="<%= posts[5].title %>">
+                <input type="hidden" name="price" value="<%= posts[5].price %>">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
 </section>
 
-<div style="" class="about-us-wrapper">
-  <h1 class="about-us-title">Welcome to AUC Entertainment.</h1>
+
+<div class="about-us-wrapper">
+  <h1 class="about-us-title">Welcome to AUC Entertainment</h1>
   <p class="about-us-content">
-        AUC Entertainment is a dynamic, mobile 
-     audio production company dedicated to delivering exceptional sound solutions. We specialize in on-site recording, live event support, and content creation tailored to businesses, artists, and creators. From podcast and music recording to live sound streaming and corporate video production, we bring professional-grade services to your preferred location.
+    AUC Entertainment is a mobile audio production company bringing high-quality sound solutions directly to you. We support creators, businesses, and communities with professional services—on-site, on-demand, and always tailored to your vision.
   </p>
+  <p class="about-us-content">Our offerings include:</p>
+  <ul  class=" about-us-list " style="list-style-type: disc; padding-left: 20px;">
+    <li>Mobile audio recording at your doorstep</li>
+    <li>Live event sound support & streaming</li>
+    <li>Podcast and music production</li>
+    <li>Corporate video production</li>
+    <li>Educational audio workshops</li>
+    <li>Wedding and church choir recordings</li>
+    <li>Support for emerging local talent</li>
+    <li>Mobile DJ services</li>
+    <li>Audio equipment rentals</li>
+    <li>Branded merchandise</li>
+  </ul>
   <p class="about-us-content">
-    Our mission extends beyond production, as we empower communities through educational workshops, partner with creators to elevate their projects, and provide personalized services like wedding recordings, church choir productions, and support for emerging local talent.
-  </p>
-  <p class="about-us-content">
-    At AUC Entertainment, we also offer mobile DJ services, equipment rentals, and branded merchandise to ensure your events and projects are seamlessly executed. With a focus on collaboration, innovation, and quality, we’re here to turn your ideas into reality while building a trusted creative network.
+    We're driven by collaboration, innovation, and a mission to empower creative communities.
   </p>
 </div>
  <!-- Music Section -->
@@ -457,46 +450,7 @@ Join the Afro-Groove movement and discover a new world of sound. AUC Entertainme
     </div>
 </div>
 
-    <!-- Download -->
-    <div id="screenshot" class="Lastestnews">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="titlepage">
-                        <h2>Latest News</h2>
-                        <span>It is a long established fact that a reader will be distracted by the readable <br>content of a page when looking at its layout. The point of using Lorem </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                    <div class="news-box">
-                        <figure><img src="images/1.jpg" alt="img" /></figure>
-                        <h3>Live With Music</h3>
-                        <span> March 20</span><span>Comment</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                    <div class="news-box">
-                        <figure><img src="images/2.jpg" alt="img" /></figure>
-                        <h3>Best Music</h3>
-                        <span> March 20</span><span>Comment</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                    <div class="news-box">
-                        <figure><img src="images/3.jpg" alt="img" /></figure>
-                        <h3>Live With Music</h3>
-                        <span> March 20</span><span>Comment</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end Download -->
+
 
 <!-- Albums -->
 <div id="screenshot" class="Albums">
@@ -560,6 +514,19 @@ Join the Afro-Groove movement and discover a new world of sound. AUC Entertainme
     </div>
 </div>
 <!-- end Albums -->
+
+<div id="about-us" class="about-us-wrapper">
+  <h1 class="about-us-title">About Us</h1>
+  <p class="about-us-content">
+    AUC Entertainment is a dynamic, mobile audio production company dedicated to delivering exceptional sound solutions. We specialize in on-site recording, live event support, and content creation tailored to businesses, artists, and creators. From podcast and music recording to live sound streaming and corporate video production, we bring professional-grade services to your preferred location.
+  </p>
+  <p class="about-us-content">
+    Our mission extends beyond production, as we empower communities through educational workshops, partner with creators to elevate their projects, and provide personalized services like wedding recordings, church choir productions, and support for emerging local talent.
+  </p>
+  <p class="about-us-content">
+    At AUC Entertainment, we also offer mobile DJ services, equipment rentals, and branded merchandise to ensure your events and projects are seamlessly executed. With a focus on collaboration, innovation, and quality, we’re here to turn your ideas into reality while building a trusted creative network.
+  </p>
+</div>
     <div class="partners-wrapper">
   <h1 class="partners-title">Our Partners</h1>
   <div id="demo" class="carousel slide" data-bs-ride="carousel">

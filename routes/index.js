@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     // Fetch latest 6 videos, music, posts, and all products for the store
     const videos = await Video.find().sort({ createdAt: -1 }).limit(6);
     const music = await Music.find().sort({ createdAt: -1 }).limit(6);
-    const posts = await Post.find().sort({ createdAt: -1 }).limit(6);
+    const posts = await Product.find().sort({ createdAt: -1 }).limit(6);
     const products = await Product.find();
     const products1 = [];
     const products2 = [];

@@ -285,9 +285,9 @@
     </style>
 </head>
 <body>
- <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
 <img height="80px" src="img/auclogo.png" alt="logo" />
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -298,9 +298,7 @@
         <li style="margin-top:10px" class="nav-item">
           <a class="nav-link" href="/">Home</a>
         </li>
-        <li style="margin-top:10px" class="nav-item">
-          <a class="nav-link" href="/about">About Us</a>
-        </li>
+        
         <li style="margin-top:10px" class="nav-item">
           <a class="nav-link" href="/about">Contact Us</a>
         </li> 
@@ -308,84 +306,18 @@
           <a class="nav-link" href="/shop">Shop</a>
         </li>  
       
-        <li style="margin-top:10px" class="nav-item">
-          <a class="nav-link" href="/video">Promotions</a>
-        </li> 
      <li style="margin-top:10px" class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Entertainments</a>
   <ul class="dropdown-menu">
     <li class="dropdown-header">Entertainment Categories</li>
       <li style="margin-top:10px" class="nav-item">
-          <a class="nav-link" href="/video">Video</a>
+          <a class="dropdown-item" href="/video">Video</a>
         </li>  
-    <li><a class="dropdown-item" href="/entertainment/category/comedy">Comedy Videos</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/aucentertainmentvideos">AUC Entertainment Videos</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/streetshows">Street Shows</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/podcast">Podcasts</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/freestyle">Freestyle</a></li>
-    <li><a class="dropdown-item" href="/entertainment/category/news">News</a></li>
+    <li><a class="dropdown-item" href="/music">Music</a></li>
+
   </ul>
 </li>
-        <li style="margin-top:10px"  class="nav-item dropdown">
-          <a class="nav-link
-          dropdown-toggle" href="music" role="button" data-bs-toggle="dropdown">Music</a>
-          <ul class="dropdown-menu">
-              <li class="dropdown-header">Music Categories</li>
-              
-            <li><a class="dropdown-item" href="/music">All Music</a>
-            </li>
-            <li><a class="dropdown-item" href="/music/category/aucentertainment">AUC Entertainment Music</a>
-            </li>
-            <li><a class="dropdown-item" href="/music/category/afro">Afro Beat</a>
-            </li>
-            <li><a class="dropdown-item" href="/music/category/asaka">Asaka</a></li>
-            <li>
-                <a class="dropdown-item" href="/music/category/dancehall">Dance Hall
-                </a>
-            </li>
-             <li>
-                <a class="dropdown-item" href="/music/category/drillmusic">Drill Music
-                </a>
-            </li>
-             <li>
-                <a class="dropdown-item" href="/music/category/gospel">Gospel Music
-                </a>
-            </li>
-             <li>
-                <a class="dropdown-item" href="/music/category/hiphop">Hiphop
-                </a>
-            </li>
-             <li   class="nav-item">
-                <a class="dropdown-item" href="/music/category/hiplife">Hip Life
-                </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-            
-          <form class="d-flex align-items-center">
-  <div  class="input-group">
-    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-button">
-    <button style="margin-top:10px;" class="btn btn-outline-secondary input-group-text" type="submit" id="search-button">
-      <i class="bi bi-search"></i>
-    </button>
-  </div>
-</form>
-        </li>
-          <li style="margin-top:10px"  class="nav-item dropdown">
-          <a class="nav-link
-          dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Accounts</a>
-          <ul class="dropdown-menu">
-              <li class="dropdown-header">UserAccount</li>
-            <li><a class="dropdown-item" href="">Login</a></li>
-            <li><a class="dropdown-item" href="">Sign Up</a></li>
-            <li>
-                <a class="dropdown-item" href="">Logout
-                </a>
-            </li>
-            
-          </ul>
-        </li>
+      
         <li style="margin-top:10px"  class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="fas fa-shopping-cart"></i>
@@ -431,24 +363,27 @@
 
         <div class="cart-total">
             <strong>Total Quantity:</strong> <%= cart.totalQty %> <br>
-            <strong>Total Amount:</strong> $<%= cart.totalAmount %>
+            <strong>Total Amount:</strong> ₦<%= cart.totalAmount %>
         </div>
 
         <h3>Checkout</h3>
-        <form action="/payment/charge" method="POST" class="checkout-form">
+        <form action="/payment" method="POST" class="checkout-form">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required>
-            
-            
+
             <label for="email">Email Address:</label>
             <input type="email" id="email" name="email" required>
-  
-<div id="card-element">
-                            <!-- A Stripe Element will be inserted here. -->
-                            </div>
-            <input type="hidden" name="Amount" value="<%= session.cart.totalAmount %>">
+
+            <label for="paymentMethod">Payment Method:</label>
+            <select name="paymentMethod" id="paymentMethod" class="form-select" required>
+                <option value="">-- Select Payment Method --</option>
+                <option value="bank">Bank Transfer</option>
+                <option value="card">Card Payment</option>
+            </select>
+
+            <input type="hidden" name="amount" value="<%= cart.totalAmount %>">
             <input type="hidden" name="totalQty" value="<%= cart.totalQty %>">
-            
+
             <button style="margin-top:40px" type="submit">Proceed to Payment</button>
         </form>
     <% } else { %>
@@ -456,49 +391,7 @@
     <% } %>
 </div>
 
-<script>
-  let PK = "pk_live_51QuCnW2Ll8ZPNKoHlbjTNCxmZz5xwmHWma2G9MLVLQePpnIbMsXuYDO7OPnx7csrQdmnbVrW1MAV8iehfoLzrVm800hlI5hBb5";
-  const stripe = Stripe(PK);
-  const elements = stripe.elements();
 
-  // Custom styling
-  const style = {
-    base: {
-      fontSize: '16px',
-      color: '#32325d',
-      fontFamily: 'Arial, sans-serif',
-      '::placeholder': {
-        color: '#aab7c4'
-      }
-    },
-    invalid: {
-      color: '#fa755a',
-      iconColor: '#fa755a'
-    }
-  };
-
-  const cardElement = elements.create('card', { style });
-  cardElement.mount('#card-element');
-
-  const form = document.querySelector('.checkout-form');
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const { token, error } = await stripe.createToken(cardElement);
-
-    if (error) {
-      document.getElementById('card-errors').textContent = error.message;
-    } else {
-      const hiddenInput = document.createElement('input');
-      hiddenInput.setAttribute('type', 'hidden');
-      hiddenInput.setAttribute('name', 'token');
-      hiddenInput.setAttribute('value', token.id);
-
-      form.appendChild(hiddenInput);
-      form.submit();
-    }
-  });
-</script>
 
 <a href="https://wa.me/4915236130116" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3);" target="_blank">
   <img src="https://img.icons8.com/ios-filled/30/ffffff/whatsapp.png" alt="WhatsApp" style="width: 30px; height: 30px;">

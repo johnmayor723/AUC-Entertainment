@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const STRIPE_SECRET = "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"
-
+/*
 
 // Payment page route
 router.post('/', (req, res, next) => {
@@ -30,17 +30,37 @@ router.post('/', (req, res, next) => {
     amount,
     title: "Payment Page" 
   });
+});*/
+
+// Payment page route
+router.post('/', (req, res, next) => {
+  const { amount, paymentMethod } = req.body;
+
+  if (!req.session.cart) {
+    return res.render('cart', { cart: null, title: "Shopping Cart" });
+  }
+
+  if (paymentMethod === 'card') {
+    // Render Stripe checkout page
+    res.render('checkout_card', {
+      amount,
+      
+      title: "Card Payment",
+    });
+  } else {
+    // Render bank transfer page
+    res.render('checkout_bank', {
+      amount,
+      title: "Bank Transfer Details",
+    });
+  }
 });
-
-
 
 
 router.post('/charge',  function(req, res, next) {
   console.log("Payment route reached")
-  if (!req.session.cart) {
-      return res.redirect('/products');
-  }
-  var amount = req.session.cart.totalAmount;
+  
+  var amount = req.body.amount;
   console.log("amount to be paid:", amount, req.session.cart)
   var stripe = require("stripe")(STRIPE_SECRET );
   //console.log("cart details:", cart)
