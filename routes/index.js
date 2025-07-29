@@ -273,7 +273,7 @@ router.get('/posts', async (req, res) => {
 });
 
 router.post('/play-loto', async (req, res) => {
-  const { name, email, n1, n2, n3, n4, n5, n6 } = req.body;
+  const { name, email, n1, n2, n3, n4, n5, n6, pnumber } = req.body;
 
   const mailOptions = {
     from: 'aucentertainmentpro@gmail.com', // same as auth user
@@ -284,6 +284,7 @@ router.post('/play-loto', async (req, res) => {
       <h3>Lotto Entry</h3>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
+       <p><strong>WhatsApp Phone number:</strong> ${pnumber}</p>
       <p><strong>Numbers:</strong> ${n1}, ${n2}, ${n3}, ${n4}, ${n5}, ${n6}</p>
     `
   };
