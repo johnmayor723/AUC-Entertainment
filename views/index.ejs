@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -206,6 +207,9 @@ display:none
         <li style="margin-top:10px" class="nav-item">
           <a class="nav-link" href="/shop">Shop</a>
         </li>  
+         <li style="margin-top:10px" class="nav-item">
+          <a class="nav-link" href="/play-loto">Play Loto</a>
+        </li>  
       
      <li style="margin-top:10px" class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Entertainments</a>
@@ -290,6 +294,7 @@ display:none
               </form>
             </div>
           </div>
+              
           <div class="card d-none d-md-block">
             <img src="<%= posts[2].images[0] %>" class="card-img-top img-fluid p3" style="height: 250px; object-fit: cover;" alt="...">
             <div class="card-body">
@@ -310,20 +315,22 @@ display:none
       <!-- Second Slide -->
       <div class="carousel-item">
         <div class="cards-wrapper">
-          <div class="card">
-            <img src="<%= posts[3].images[0] %>" class="card-img-top img-fluid p3" style="height: 250px; object-fit: cover;" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><%= posts[3].title %></h5>
-              <p class="card-text">$<%= posts[3].price %></p>
-              <form action="/cart/<%= posts[3]._id %>" method="POST">
-                <input type="hidden" name="_id" value="<%= posts[3]._id %>">
-                <input type="hidden" name="imageUrl" value="<%= posts[3].images[0] %>">
-                <input type="hidden" name="title" value="<%= posts[3].title %>">
-                <input type="hidden" name="price" value="<%= posts[3].price %>">
-                <button type="submit" class="btn btn-primary">Add to Cart</button>
-              </form>
-            </div>
-          </div>
+          <div class="card d-none d-md-block text-center">
+  <div class="card-body">
+    <h5 class="card-title">Play Lotto on WhatsApp</h5>
+    <p class="card-text">Join our WhatsApp group to participate and stand a chance to win.</p>
+    <a 
+      href="https://chat.whatsapp.com/IwyrS2Wz21g1fVZghPUM3w?mode=ac_t" 
+      class="btn btn-success" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      Join Now
+    </a>
+    <p class="mt-3 text-muted" style="font-size: 0.9rem;">Powered by AUC Entertainments</p>
+  </div>
+</div>
+
           <div class="card d-none d-md-block">
             <img src="<%= posts[4].images[0] %>" class="card-img-top img-fluid p3" style="height: 250px; object-fit: cover;" alt="...">
             <div class="card-body">

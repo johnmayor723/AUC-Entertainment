@@ -247,6 +247,11 @@ router.get('/shop/:id', async (req, res) => {
     }
 });
 
+//loto route 
+// GET /play-loto
+router.get('/play-loto', (req, res) => {
+  res.render('loto');
+});
 
 // Posts Route (Blog)
 router.get('/posts', async (req, res) => {
