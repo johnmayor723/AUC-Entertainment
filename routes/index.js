@@ -5,6 +5,14 @@ const Music = require('../models/Music');
 const Entertainment = require('../models/Entertainment');
 const Product = require('../models/Shop');
 const Post = require('../models/Post');
+// routes/loto.js or inside your main Express file
+
+const transporter = require('../config/mailer'); // adjust path if needed
+
+
+
+
+
 
 // Index Route - Homepage
 router.get('/', async (req, res) => {
@@ -261,6 +269,31 @@ router.get('/posts', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send('Error loading posts');
+  }
+});
+
+router.post('/play-loto', async (req, res) => {
+  const { name, email, n1, n2, n3, n4, n5, n6 } = req.body;
+
+  const mailOptions = {
+    from: 'aucentertainmentpro@gmail.com', // same as auth user
+    to: 'aucentertainmentpro@gmail.com, mayowaandrews723@gmail.com',
+  // can be same or a fixed inbox
+    subject: `New Lotto Submission from ${name}`,
+    html: `
+      <h3>Lotto Entry</h3>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Numbers:</strong> ${n1}, ${n2}, ${n3}, ${n4}, ${n5}, ${n6}</p>
+    `
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.render('loto-success', { name });
+  } catch (err) {
+    console.error('Email send error:', err);
+    res.status(500).send('Failed to send email.');
   }
 });
 
